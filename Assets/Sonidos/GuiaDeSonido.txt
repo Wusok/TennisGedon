@@ -1,0 +1,16 @@
+Musica:
+-Musica Intro 1 y 2 deben ser loopeados y elegi el que mas te guste para la intro del juego
+ (yo prefiero la 1, que da mas vibra de flashback).
+-Musica Fondo 1 y 2 deben ser loopeados y elegi el que mas te guste para los niveles, pantalla de inicio, ect.
+ (yo prefiero la 1, xq si).
+
+Sonidos:
+-El Raqueteo sirve para todas las raquetas y pelotas
+-Cada pelota tiene un sonido al chocar al enemigo/accion (ponele que al destruirse)
+  -La pelota de plasma tiene dos sonidos (elige el que mas te parezca apropiado, yo prefiero el 1)
+-El sonido de la plataforma de hielo tiene que reproducirse al estar por romperse, y al hacerlo, 
+ la volveria mas transparente para que se note mas que se va a romper
+-PlayerOuch! es para cuando dañen al jugador.
+
+Si necesitas mas sonidos o ayuda, mensajeame.
+Y perdon por tardar... 
