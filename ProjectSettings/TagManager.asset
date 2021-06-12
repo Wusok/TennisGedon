@@ -16,6 +16,12 @@ TagManager:
   - Trigger
   - EnemyBullet
   - ExplosiveBall
+  - Ground
+  - CheckPoint0
+  - CheckPoint1
+  - CheckPoint2
+  - CheckPoint3
+  - CheckPoint4
   layers:
   - Default
   - TransparentFX

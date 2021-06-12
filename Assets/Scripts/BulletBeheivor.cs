@@ -6,8 +6,9 @@ public class BulletBeheivor : MonoBehaviour
 {
     public float Velocity = 1500f;
     public float FallVelocity = 0.01f;
-    public float AngularVelocity = 0.00001f;
-    private float Side;
+    private float AngularVelocity = 10f;
+    private float Sidex;
+    private float Sidez;
     Rigidbody Rb;
     public float DownTime = 0;
     public GameObject Ice;
@@ -16,8 +17,9 @@ public class BulletBeheivor : MonoBehaviour
     {
         Rb = GetComponent<Rigidbody>();
         Rb.velocity = transform.forward * Velocity * Time.deltaTime;
-        Side = NewPJSMove.MoveSide;
-        if (Side == 1)
+        Sidex = NewPJSMove.x;
+        Sidez = NewPJSMove.z;
+        /*if (Side == 1)
         {
             Debug.Log("Lado1");
             Rb.AddForce(transform.right * AngularVelocity);
@@ -26,7 +28,9 @@ public class BulletBeheivor : MonoBehaviour
         {
             Debug.Log("Lado2");
             Rb.AddForce(-transform.right * AngularVelocity);
-        }
+        }*/
+        Rb.AddForce(-transform.right * Sidex * AngularVelocity);
+        Rb.AddForce(transform.forward * Sidez * AngularVelocity);
         WhatIsThisBall = Bullet.UsingBullet;
     }
 

@@ -7,10 +7,12 @@ public class MenuManager : MonoBehaviour
     public static bool CantMove = false;
     public GameObject Option;
     public GameObject Cross;
+    public int ThisLVL;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        NewPJSMove.NextLVL = ThisLVL;
         MenuOff();
         CantMove = false;
     }

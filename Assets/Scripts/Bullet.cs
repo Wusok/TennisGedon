@@ -24,6 +24,11 @@ public class Bullet : MonoBehaviour
         audiosource = GetComponent<AudioSource>();
     }
 
+    private void Awake()
+    {
+        CDR = 5;
+    }
+
     // Update is called once per frame
     void Update()
     {
