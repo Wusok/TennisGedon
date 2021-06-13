@@ -9826,6 +9826,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7728883301012914877, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: gris.r
+      value: 0.26415092
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728883301012914877, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: gris.g
+      value: 0.26415092
+      objectReference: {fileID: 0}
+    - target: {fileID: 7728883301012914877, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: gris.b
+      value: 0.26415092
+      objectReference: {fileID: 0}
     - target: {fileID: 8136859404816619784, guid: 452246675d63b114ebc6d85e8e79a9d6,
         type: 3}
       propertyPath: m_Name

@@ -18,13 +18,13 @@ public class UIBalls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(esnormal == true)
+        if(esnormal == true)
         {
             image.color += normal;
         }
         else
         {
             image.color += gris;
-        }*/
+        }
     }
 }

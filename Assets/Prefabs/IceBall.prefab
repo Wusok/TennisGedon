@@ -106,9 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a025b72afe95ec42adce745351d4015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 1500
+  Velocity: 20
   FallVelocity: 750
-  AngularVelocity: 4000
   DownTime: 0
   Ice: {fileID: 4953608457724589903, guid: 6ff3c1d59714aed47b0cb82222ff6507, type: 3}
 --- !u!54 &8620252016857926617

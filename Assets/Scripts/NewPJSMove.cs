@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class NewPJSMove : MonoBehaviour
 {
+    //[SerializeField] Acceder como publica a privada
+    //[Range(-5, 5)] Hacer un slider de una variable
+    //Shift f12 Buscadr donde se usa cada variable
+    //other
+
     public float HorizontalMove;
     public float VerticalMove;
     public float fallvelocity;
@@ -48,12 +53,12 @@ public class NewPJSMove : MonoBehaviour
     {
         if (MenuManager.CantMove == false)
         {
-            if(ThisLVL != NextLVL)
+            if (ThisLVL != NextLVL)
             {
                 EnableCheckPoints = false;
                 ThisLVL = NextLVL;
             }
-            
+
             HorizontalMove = Input.GetAxisRaw("Horizontal");
             VerticalMove = Input.GetAxisRaw("Vertical");
 
@@ -64,17 +69,11 @@ public class NewPJSMove : MonoBehaviour
             playerInput = playerInput * speed;
 
             if (Input.GetAxis("Horizontal") > 0)
-            {
                 MoveSide = 1;
-            }
             else if (Input.GetAxis("Horizontal") < 0)
-            {
                 MoveSide = -1;
-            }
             else if (Input.GetAxis("Horizontal") == 0)
-            {
                 MoveSide = 0;
-            }
 
             SetGravity();
 
@@ -84,16 +83,11 @@ public class NewPJSMove : MonoBehaviour
             z = playerInput.z;
 
             player.Move(playerInput * Time.deltaTime);
-
-            if (Life <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
         }
 
         if (Input.GetKey("p"))
         {
-            if (resettimer>= 1)
+            if (resettimer >= 1)
             {
                 resettimer = 0;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -122,7 +116,7 @@ public class NewPJSMove : MonoBehaviour
 
     void PlayerSkills()
     {
-        if(player.isGrounded && Input.GetButtonDown("Jump"))
+        if (player.isGrounded && Input.GetButtonDown("Jump"))
         {
             fallvelocity = jumpforce;
             playerInput.y = fallvelocity;
@@ -141,8 +135,8 @@ public class NewPJSMove : MonoBehaviour
         {
             ThisCheckPoint = GameObject.FindGameObjectWithTag("CheckPoint" + LastCheckpoint).transform;
             transform.position = ThisCheckPoint.position;
-        } 
-        
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -155,7 +149,15 @@ public class NewPJSMove : MonoBehaviour
         {
             audiosource.PlayOneShot(hitsound);
             Life--;
+            if (Life <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             Debug.Log(Life);
+        }
+        if(other.gameObject.tag == "Enemy")
+        {
+            //other.GetComponent<Enemy>().EnemyLife
         }
     }
 }

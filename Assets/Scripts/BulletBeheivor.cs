@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class BulletBeheivor : MonoBehaviour
 {
-    public float Velocity = 1500f;
+    [SerializeField] private float Velocity = 2f;
     public float FallVelocity = 0.01f;
     private float AngularVelocity = 10f;
     private float Sidex;
     private float Sidez;
     Rigidbody Rb;
+    [Range(-5, 5)]
     public float DownTime = 0;
     public GameObject Ice;
     private int WhatIsThisBall;
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        Rb.velocity = transform.forward * Velocity * Time.deltaTime;
+        //Rb.velocity = transform.forward * Velocity * Time.deltaTime;
         Sidex = NewPJSMove.x;
         Sidez = NewPJSMove.z;
         /*if (Side == 1)
@@ -30,7 +31,7 @@ public class BulletBeheivor : MonoBehaviour
             Rb.AddForce(-transform.right * AngularVelocity);
         }*/
         Rb.AddForce(-transform.right * Sidex * AngularVelocity);
-        Rb.AddForce(transform.forward * Sidez * AngularVelocity);
+        //Rb.AddForce(transform.forward * Sidez * AngularVelocity);
         WhatIsThisBall = Bullet.UsingBullet;
     }
 
@@ -42,6 +43,7 @@ public class BulletBeheivor : MonoBehaviour
             Rb.AddForce(-transform.up * FallVelocity* Time.deltaTime);
         }
         DownTime = DownTime + 1 * Time.deltaTime;
+        transform.position += transform.forward * Time.deltaTime * Velocity;
     }
 
     private void OnCollisionEnter(Collision other)
