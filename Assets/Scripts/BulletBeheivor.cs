@@ -20,6 +20,12 @@ public class BulletBeheivor : MonoBehaviour
         //Rb.velocity = transform.forward * Velocity * Time.deltaTime;
         Sidex = NewPJSMove.x;
         Sidez = NewPJSMove.z;
+
+        if (Sidex > 0)
+            Rb.AddForce(transform.right * (Sidex+1) * AngularVelocity);
+        else if (Sidex < 0)
+            Rb.AddForce(transform.right * (Sidex -1) * AngularVelocity);
+
         /*if (Side == 1)
         {
             Debug.Log("Lado1");
@@ -30,7 +36,7 @@ public class BulletBeheivor : MonoBehaviour
             Debug.Log("Lado2");
             Rb.AddForce(-transform.right * AngularVelocity);
         }*/
-        Rb.AddForce(-transform.right * Sidex * AngularVelocity);
+
         //Rb.AddForce(transform.forward * Sidez * AngularVelocity);
         WhatIsThisBall = Bullet.UsingBullet;
     }

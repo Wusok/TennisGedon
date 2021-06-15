@@ -42,10 +42,6 @@ public class Rugbier : MonoBehaviour
             speed = backup;
         }
         speed = backup;
-
-
-      
-     
     }
 
 }
