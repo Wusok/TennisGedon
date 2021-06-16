@@ -412,7 +412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9042780019950035869}
   - component: {fileID: 9042780019950035867}
-  - component: {fileID: 1283113074575238833}
+  - component: {fileID: 7983814237720956338}
   - component: {fileID: 2727306681499188310}
   - component: {fileID: 3551746552566612047}
   m_Layer: 0
@@ -452,7 +452,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &1283113074575238833
+--- !u!143 &7983814237720956338
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -487,7 +487,6 @@ MonoBehaviour:
   fallvelocity: 0
   player: {fileID: 0}
   gravity: 20
-  jumpforce: 8
   hitsound: {fileID: 8300000, guid: 49a52b087d8f0834599762fa513a8fdd, type: 3}
 --- !u!82 &3551746552566612047
 AudioSource:

@@ -9,6 +9,10 @@ public class Bullet : MonoBehaviour
     public static bool HaveExplosiveBullet = false;
     public static bool HaveBigBullet = false;
 
+    public static bool RapidRacket = true;
+    public static bool MeleRacket = true;
+    public static bool MultiRacket = true;
+
     [Header("Shoot")]
     public List<GameObject> YourBullets;
     public static int UsingBullet = 0;

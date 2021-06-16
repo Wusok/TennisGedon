@@ -155,9 +155,10 @@ public class NewPJSMove : MonoBehaviour
             }
             Debug.Log(Life);
         }
-        if(other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             //other.GetComponent<Enemy>().EnemyLife
         }
     }
 }
+
