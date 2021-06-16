@@ -133,21 +133,15 @@ public class UIManager : MonoBehaviour
             FWeapon3.gameObject.SetActive(false);
             FWeapon4.gameObject.SetActive(false);
 
-            if(Bullet.RapidRacket == true)
-            {
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-            }
-            if (Bullet.MeleRacket == true)
-            {
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-            }
-            if (Bullet.MultiRacket == true)
-            {
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-            }
+            SWeapon1.gameObject.SetActive(true);
+            SWeapon2.gameObject.SetActive(false);
+
+            TWeapon1.gameObject.SetActive(true);
+            TWeapon2.gameObject.SetActive(false);
+
+            FoWeapon1.gameObject.SetActive(true);
+            FoWeapon2.gameObject.SetActive(false);
+           
         }
 
         if (Weapon == 1 && Bullet.MeleRacket == true)
@@ -157,14 +151,14 @@ public class UIManager : MonoBehaviour
             FWeapon3.gameObject.SetActive(false);
             FWeapon4.gameObject.SetActive(false);
 
-            SWeapon1.gameObject.SetActive(true);
-            SWeapon2.gameObject.SetActive(false);
+            SWeapon1.gameObject.SetActive(false);
+            SWeapon2.gameObject.SetActive(true);
 
             TWeapon1.gameObject.SetActive(true);
             TWeapon2.gameObject.SetActive(false);
 
-            FoWeapon1.gameObject.SetActive(false);
-            FoWeapon2.gameObject.SetActive(true);
+            FoWeapon1.gameObject.SetActive(true);
+            FoWeapon2.gameObject.SetActive(false);
         }
 
         if (Weapon == 2 && Bullet.MultiRacket == true)

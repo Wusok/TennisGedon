@@ -6,11 +6,9 @@ public class BulletBeheivor : MonoBehaviour
 {
     [SerializeField] private float Velocity = 2f;
     public float FallVelocity = 0.01f;
-    private float AngularVelocity = 10f;
+    private float AngularVelocity = 500;
     private float Sidex;
-    private float Sidez;
     Rigidbody Rb;
-    [Range(-5, 5)]
     public float DownTime = 0;
     public GameObject Ice;
     private int WhatIsThisBall;
@@ -19,7 +17,6 @@ public class BulletBeheivor : MonoBehaviour
         Rb = GetComponent<Rigidbody>();
         //Rb.velocity = transform.forward * Velocity * Time.deltaTime;
         Sidex = NewPJSMove.x;
-        Sidez = NewPJSMove.z;
 
         if (Sidex > 0)
             Rb.AddForce(transform.right * (Sidex+1) * AngularVelocity);

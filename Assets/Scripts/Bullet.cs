@@ -9,9 +9,9 @@ public class Bullet : MonoBehaviour
     public static bool HaveExplosiveBullet = false;
     public static bool HaveBigBullet = false;
 
-    public static bool RapidRacket = true;
-    public static bool MeleRacket = true;
-    public static bool MultiRacket = true;
+    public static bool RapidRacket = false;
+    public static bool MeleRacket = false;
+    public static bool MultiRacket = false;
 
     [Header("Shoot")]
     public List<GameObject> YourBullets;

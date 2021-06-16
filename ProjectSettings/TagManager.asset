@@ -23,6 +23,7 @@ TagManager:
   - CheckPoint3
   - CheckPoint4
   - Mele
+  - PunchZone
   layers:
   - Default
   - TransparentFX
