@@ -517,6 +517,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1079099504948656318, guid: e5ae249704246d949bc8674acff1bee1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079099504948656318, guid: e5ae249704246d949bc8674acff1bee1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079099504948656318, guid: e5ae249704246d949bc8674acff1bee1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4081073323177757357, guid: e5ae249704246d949bc8674acff1bee1,
         type: 3}
       propertyPath: m_Name
