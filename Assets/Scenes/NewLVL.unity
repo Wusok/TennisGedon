@@ -993,6 +993,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cafeteria 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
 --- !u!1 &74245648
@@ -1738,6 +1743,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arbol1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d700f9cdca972fd42826d5d61bdede94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -222690044532894818, guid: d700f9cdca972fd42826d5d61bdede94,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1885,6 +1895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
@@ -2130,6 +2145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Auto 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
@@ -4871,6 +4891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cafeteria 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
 --- !u!1001 &442048806
@@ -5346,6 +5371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
@@ -6429,6 +6459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Auto 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
@@ -8022,6 +8057,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arbol2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 998157d4ef9766c4d910a039a0fec835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -222690044532894818, guid: 998157d4ef9766c4d910a039a0fec835,
         type: 3}
@@ -13719,6 +13759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arbol1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d700f9cdca972fd42826d5d61bdede94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -222690044532894818, guid: d700f9cdca972fd42826d5d61bdede94,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -14104,6 +14149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
@@ -16350,6 +16400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Columpio
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4515739c3ebac594a839d341e64890bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8238094878244800105, guid: 4515739c3ebac594a839d341e64890bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16443,6 +16498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trepadora 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6db8af21d46b1d84f8543aed5c7611be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4185081140547606050, guid: 6db8af21d46b1d84f8543aed5c7611be,
         type: 3}
@@ -16626,6 +16686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arbol2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 998157d4ef9766c4d910a039a0fec835,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -222690044532894818, guid: 998157d4ef9766c4d910a039a0fec835,
         type: 3}
@@ -17149,6 +17214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
@@ -18649,6 +18719,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farol1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 026aa1b485663d745ad2201b83e1b52c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 026aa1b485663d745ad2201b83e1b52c, type: 3}
 --- !u!1 &1582160129
@@ -19227,7 +19302,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 846fe306cdf5fe543a1335901f752350,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -304.2
+      value: -352.9
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 846fe306cdf5fe543a1335901f752350,
         type: 3}
@@ -20466,6 +20541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Auto 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
@@ -23158,6 +23238,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farol1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 026aa1b485663d745ad2201b83e1b52c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 026aa1b485663d745ad2201b83e1b52c, type: 3}
 --- !u!1001 &2008691634
@@ -24448,6 +24533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Auto 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}

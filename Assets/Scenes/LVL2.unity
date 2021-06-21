@@ -1449,7 +1449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &227156952
 Transform:
   m_ObjectHideFlags: 0
@@ -4421,6 +4421,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camioneta 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 539d1f83031bcb04ab026f6b1547f153,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -12412063382954115, guid: 539d1f83031bcb04ab026f6b1547f153,
         type: 3}
       propertyPath: m_IsActive
@@ -4857,6 +4862,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Auto 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
       propertyPath: m_IsActive
@@ -5037,6 +5047,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trepadora 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6db8af21d46b1d84f8543aed5c7611be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -649218965039086052, guid: 6db8af21d46b1d84f8543aed5c7611be,
         type: 3}
@@ -6205,6 +6220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Columpio (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4515739c3ebac594a839d341e64890bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4515739c3ebac594a839d341e64890bf, type: 3}
 --- !u!1001 &839497556
@@ -7128,6 +7148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Auto 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
       propertyPath: m_IsActive
@@ -7476,6 +7501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Trepadora 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6db8af21d46b1d84f8543aed5c7611be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -649218965039086052, guid: 6db8af21d46b1d84f8543aed5c7611be,
         type: 3}
@@ -8604,6 +8634,112 @@ Transform:
   m_Children: []
   m_Father: {fileID: 660314589}
   m_RootOrder: 49
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1037915129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037915134}
+  - component: {fileID: 1037915133}
+  - component: {fileID: 1037915132}
+  - component: {fileID: 1037915131}
+  - component: {fileID: 1037915130}
+  m_Layer: 0
+  m_Name: Win (1)
+  m_TagString: Win
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1037915130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037915129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762558643cb8a9a448e5fa14bb4177a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LVLToLoad: NewLVL
+--- !u!65 &1037915131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037915129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1037915132
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037915129}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: edba14861b480424882ab0b48e2f7376, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1037915133
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037915129}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1037915134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037915129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.9, y: 6.07, z: -7.7}
+  m_LocalScale: {x: 1, y: 10, z: 16.795631}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067870075
 GameObject:
@@ -11071,6 +11207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camioneta 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 539d1f83031bcb04ab026f6b1547f153,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -12412063382954115, guid: 539d1f83031bcb04ab026f6b1547f153,
         type: 3}
@@ -14058,6 +14199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Auto 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: beafab47bc8275942bc00f53974fb612,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962894308286029321, guid: beafab47bc8275942bc00f53974fb612,
         type: 3}
       propertyPath: m_IsActive
@@ -15067,6 +15213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762558643cb8a9a448e5fa14bb4177a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LVLToLoad: 
 --- !u!4 &1854838488 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2376093880447654789, guid: f8665d8010b260c479068b6eaa0a7d8d,
@@ -15625,6 +15772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}
@@ -16287,6 +16439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cafeteria 2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 09df556d2180cfe468fa8b12f3931c6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09df556d2180cfe468fa8b12f3931c6d, type: 3}

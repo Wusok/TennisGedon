@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1"))
+        /*if (Input.GetKeyDown("1"))
         {
             UsingBullet = 0;
             Debug.Log("Pelota1");
@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
         {
             UsingBullet = 3;
             Debug.Log("Pelota4");
-        }
+        }*/
 
         if (MenuManager.CantMove == false)
         {
