@@ -71,14 +71,14 @@ public class Enemy : MonoBehaviour
         {
             audiosource.PlayOneShot(normalhit);
             ThisEnemy += -1;
-            Debug.Log(ThisEnemy);
+            //Debug.Log(ThisEnemy);
         }
         if (other.gameObject.tag == "IceBall")
         {
             audiosource.PlayOneShot(icehit);
             Rend.material = Freeze;
             ThisEnemy = ThisEnemy - 0.5f;
-            Debug.Log(ThisEnemy);
+            //Debug.Log(ThisEnemy);
             if(CanFrezze == true)
             {
                 NotFreezing = false;

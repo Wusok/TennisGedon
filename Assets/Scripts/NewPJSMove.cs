@@ -98,6 +98,7 @@ public class NewPJSMove : MonoBehaviour
         {
             resettimer = 0;
         }
+        Debug.Log(Life);
     }
 
     void SetGravity()

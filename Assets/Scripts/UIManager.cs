@@ -98,77 +98,99 @@ public class UIManager : MonoBehaviour
         else
             Weapon = 0;
 
-        
-        if(Weapon == 0)
+        while (While == false)
         {
-            FWeapon1.gameObject.SetActive(true);
-            FWeapon2.gameObject.SetActive(false);
-            FWeapon3.gameObject.SetActive(false);
-            FWeapon4.gameObject.SetActive(false);
+            if (Weapon == 0)
+            {
+                FWeapon1.gameObject.SetActive(true);
+                FWeapon2.gameObject.SetActive(false);
+                FWeapon3.gameObject.SetActive(false);
+                FWeapon4.gameObject.SetActive(false);
 
-            SWeapon1.gameObject.SetActive(true);
-            SWeapon2.gameObject.SetActive(false);
+                SWeapon1.gameObject.SetActive(true);
+                SWeapon2.gameObject.SetActive(false);
 
-            TWeapon1.gameObject.SetActive(true);
-            TWeapon2.gameObject.SetActive(false);
+                TWeapon1.gameObject.SetActive(true);
+                TWeapon2.gameObject.SetActive(false);
 
-            FoWeapon1.gameObject.SetActive(true);
-            FoWeapon2.gameObject.SetActive(false);
-           
+                FoWeapon1.gameObject.SetActive(true);
+                FoWeapon2.gameObject.SetActive(false);
+
+                While = true;
+            }
+
+            if (Weapon == 1 && Bullet.MeleRacket == true)
+            {
+                FWeapon1.gameObject.SetActive(false);
+                FWeapon2.gameObject.SetActive(true);
+                FWeapon3.gameObject.SetActive(false);
+                FWeapon4.gameObject.SetActive(false);
+
+                SWeapon1.gameObject.SetActive(false);
+                SWeapon2.gameObject.SetActive(true);
+
+                TWeapon1.gameObject.SetActive(true);
+                TWeapon2.gameObject.SetActive(false);
+
+                FoWeapon1.gameObject.SetActive(true);
+                FoWeapon2.gameObject.SetActive(false);
+
+                While = true;
+            }
+            else if (Weapon == 1 && Bullet.MeleRacket == false)
+            {
+                Weapon++;
+            }
+
+            if (Weapon == 2 && Bullet.MultiRacket == true)
+            {
+                FWeapon1.gameObject.SetActive(false);
+                FWeapon2.gameObject.SetActive(false);
+                FWeapon3.gameObject.SetActive(true);
+                FWeapon4.gameObject.SetActive(false);
+
+                SWeapon1.gameObject.SetActive(true);
+                SWeapon2.gameObject.SetActive(false);
+
+                TWeapon1.gameObject.SetActive(false);
+                TWeapon2.gameObject.SetActive(true);
+
+                FoWeapon1.gameObject.SetActive(true);
+                FoWeapon2.gameObject.SetActive(false);
+
+                While = true;
+            }
+            else if (Weapon == 2 && Bullet.MultiRacket == false)
+            {
+                Weapon++;
+            }
+
+            if (Weapon == 3 && Bullet.RapidRacket == true)
+            {
+                FWeapon1.gameObject.SetActive(false);
+                FWeapon2.gameObject.SetActive(false);
+                FWeapon3.gameObject.SetActive(false);
+                FWeapon4.gameObject.SetActive(true);
+
+                SWeapon1.gameObject.SetActive(true);
+                SWeapon2.gameObject.SetActive(false);
+
+                TWeapon1.gameObject.SetActive(true);
+                TWeapon2.gameObject.SetActive(false);
+
+                FoWeapon1.gameObject.SetActive(false);
+                FoWeapon2.gameObject.SetActive(true);
+
+                While = true;
+            }
+            else if (Weapon == 3 && Bullet.RapidRacket == false)
+            {
+                Weapon=0;
+            }
         }
 
-        if (Weapon == 1 && Bullet.MeleRacket == true)
-        {
-            FWeapon1.gameObject.SetActive(false);
-            FWeapon2.gameObject.SetActive(true);
-            FWeapon3.gameObject.SetActive(false);
-            FWeapon4.gameObject.SetActive(false);
-
-            SWeapon1.gameObject.SetActive(false);
-            SWeapon2.gameObject.SetActive(true);
-
-            TWeapon1.gameObject.SetActive(true);
-            TWeapon2.gameObject.SetActive(false);
-
-            FoWeapon1.gameObject.SetActive(true);
-            FoWeapon2.gameObject.SetActive(false);
-        }
-
-        if (Weapon == 2 && Bullet.MultiRacket == true)
-        {
-            FWeapon1.gameObject.SetActive(false);
-            FWeapon2.gameObject.SetActive(false);
-            FWeapon3.gameObject.SetActive(true);
-            FWeapon4.gameObject.SetActive(false);
-
-            SWeapon1.gameObject.SetActive(true);
-            SWeapon2.gameObject.SetActive(false);
-
-            TWeapon1.gameObject.SetActive(false);
-            TWeapon2.gameObject.SetActive(true);
-
-            FoWeapon1.gameObject.SetActive(true);
-            FoWeapon2.gameObject.SetActive(false);
-        }
-
-        if (Weapon == 3 && Bullet.RapidRacket == true)
-        {
-            FWeapon1.gameObject.SetActive(false);
-            FWeapon2.gameObject.SetActive(false);
-            FWeapon3.gameObject.SetActive(false);
-            FWeapon4.gameObject.SetActive(true);
-
-            SWeapon1.gameObject.SetActive(true);
-            SWeapon2.gameObject.SetActive(false);
-
-            TWeapon1.gameObject.SetActive(true);
-            TWeapon2.gameObject.SetActive(false);
-
-            FoWeapon1.gameObject.SetActive(false);
-            FoWeapon2.gameObject.SetActive(true);
-        }
-
-        Debug.Log(Weapon);
+        While = false;
+        Bullet.UsingWeapon = Weapon;
     }
 
 

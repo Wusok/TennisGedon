@@ -15,14 +15,17 @@ public class NewWeapon : MonoBehaviour
             if(Mele == true)
             {
                 Bullet.MeleRacket = true;
+                Destroy(gameObject);
             }
             if (Rapid == true)
             {
                 Bullet.RapidRacket = true;
+                Destroy(gameObject);
             }
             if (Multi == true)
             {
                 Bullet.MultiRacket = true;
+                Destroy(gameObject);
             }
         }
     }

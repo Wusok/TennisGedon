@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     [Header("Shoot")]
     public List<GameObject> YourBullets;
     public static int UsingBullet = 0;
+    public static int UsingWeapon = 0;
 
     private float CDR = 0;
 
