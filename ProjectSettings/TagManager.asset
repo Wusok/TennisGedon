@@ -24,6 +24,9 @@ TagManager:
   - CheckPoint4
   - Mele
   - PunchZone
+  - Floor
+  - Boots
+  - JumpBoost
   layers:
   - Default
   - TransparentFX

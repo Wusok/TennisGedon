@@ -13,11 +13,11 @@ public class NewPJSMove : MonoBehaviour
     public float HorizontalMove;
     public float VerticalMove;
     public float fallvelocity;
-    public CharacterController player;
-    private float speed = 5;
-    private float runspeed = 2.5f;
+    private float speed;
+    private float runSpeed = 14;
+    private float walkSpeed = 7;
     public float gravity = 20f;
-    private float jumpforce = 10f;
+    private float jumpforce = 6f;
     public static int Life = 6;
     public static int MoveSide;
     private float resettimer = 0;
@@ -26,9 +26,17 @@ public class NewPJSMove : MonoBehaviour
     public static bool EnableCheckPoints = false;
     public static int NextLVL = 1;
     private int ThisLVL = -1;
+    public static float dash = 1.6f;
+    private bool canDash =true;
+    private bool isDashing = false;
+    private float movementMagnitud;
+    private Rigidbody rb;
+    bool isGrounded;
+    bool dobleJump = false;
+    bool canDJ = false;
+    float jumpBoostForce = 8;
 
     public static float x;
-    public static float z;
 
     public AudioClip hitsound;
     private AudioSource audiosource;
@@ -45,44 +53,55 @@ public class NewPJSMove : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<CharacterController>();
         audiosource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         if (MenuManager.CantMove == false)
         {
-            if (ThisLVL != NextLVL)
+            if (isDashing == false)
             {
-                EnableCheckPoints = false;
-                ThisLVL = NextLVL;
+                if (ThisLVL != NextLVL)
+                {
+                    EnableCheckPoints = false;
+                    ThisLVL = NextLVL;
+                }
+
+                HorizontalMove = Input.GetAxisRaw("Horizontal");
+                VerticalMove = Input.GetAxisRaw("Vertical");
+
+                movementMagnitud = playerInput.magnitude;
+
+                playerInput = transform.right * HorizontalMove + transform.forward * VerticalMove * Mathf.Abs(VerticalMove);
+
+                playerInput.y = 0;
+
             }
 
-            HorizontalMove = Input.GetAxisRaw("Horizontal");
-            VerticalMove = Input.GetAxisRaw("Vertical");
+            if (movementMagnitud > 1)
+            {
+                rb.MovePosition(transform.position + playerInput.normalized * (speed * Time.deltaTime));
+                movementMagnitud = 1;
+            }
+            else
+                rb.MovePosition(transform.position + playerInput * (speed * Time.deltaTime));
 
-            Vector3 move = transform.right * HorizontalMove + transform.forward * VerticalMove;
-
-            playerInput = move;
-
-            playerInput = playerInput * speed;
-
-            if (Input.GetAxis("Horizontal") > 0)
-                MoveSide = 1;
-            else if (Input.GetAxis("Horizontal") < 0)
-                MoveSide = -1;
-            else if (Input.GetAxis("Horizontal") == 0)
-                MoveSide = 0;
-
-            SetGravity();
+            if (canDash == false)
+            {
+                dash += 1 * Time.deltaTime;
+                if (dash > 1.5f)
+                {
+                    canDash = true;
+                }
+            }
+            else
+                dash = 0;
 
             PlayerSkills();
 
-            x = playerInput.x;
-            z = playerInput.z;
-
-            player.Move(playerInput * Time.deltaTime);
+            x = HorizontalMove;
         }
 
         if (Input.GetKey("p"))
@@ -98,35 +117,41 @@ public class NewPJSMove : MonoBehaviour
         {
             resettimer = 0;
         }
-        Debug.Log(Life);
-    }
-
-    void SetGravity()
-    {
-        if (player.isGrounded)
-        {
-            fallvelocity = -gravity * Time.deltaTime;
-            playerInput.y = fallvelocity;
-        }
-        else
-        {
-            fallvelocity -= gravity * Time.deltaTime;
-            playerInput.y = fallvelocity;
-        }
+        //Debug.Log(Life);
     }
 
     void PlayerSkills()
     {
-        if (player.isGrounded && Input.GetButtonDown("Jump"))
+        if (isGrounded == true && Input.GetButtonDown("Jump"))
         {
-            fallvelocity = jumpforce;
-            playerInput.y = fallvelocity;
+            rb.AddForce(transform.up * jumpforce, ForceMode.Impulse);
+            Debug.Log("Saltar");
         }
 
-        if (Input.GetButton("Sprint"))
+        if(Input.GetButtonDown("Jump") && isGrounded == false && dobleJump == true)
         {
-            playerInput.x = playerInput.x * runspeed;
-            playerInput.z = playerInput.z * runspeed;
+            rb.AddForce(transform.up * jumpforce, ForceMode.Impulse);
+            dobleJump = false;
+        }
+
+        if(isDashing == false)
+        {
+            if (Input.GetButton("Sprint"))
+            {
+                speed = runSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
+        }
+
+        if (Input.GetButtonDown("Dash") && canDash == true)
+        {
+            Debug.Log("dash");
+            canDash = false;
+            isDashing = true;
+            StartCoroutine(Dash());
         }
     }
 
@@ -160,6 +185,46 @@ public class NewPJSMove : MonoBehaviour
         {
             //other.GetComponent<Enemy>().EnemyLife
         }
+        if(other.gameObject.tag == "Boots")
+        {
+            canDJ = true;
+            dobleJump = true;
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.tag == "JumpBoost")
+        {
+            rb.AddForce(transform.up * jumpBoostForce, ForceMode.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isGrounded = true;
+            if (canDJ)
+            {
+                dobleJump = true;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isGrounded = false;
+        }
+    }
+
+    IEnumerator Dash()
+    {
+        Debug.Log("Corutine");
+        speed = speed * 15;
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("termino cr");
+        speed = speed / 4;
+        isDashing = false;
     }
 }
 

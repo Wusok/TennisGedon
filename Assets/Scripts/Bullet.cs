@@ -37,27 +37,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown("1"))
-        {
-            UsingBullet = 0;
-            Debug.Log("Pelota1");
-        }
-        if (Input.GetKeyDown("2") && HaveIceBullet == true)
-        {
-            UsingBullet = 1;
-            Debug.Log("Pelota2");
-        }
-        if (Input.GetKeyDown("3") && HaveExplosiveBullet == true)
-        {
-            UsingBullet = 2;
-            Debug.Log("Pelota3");
-        }
-        if (Input.GetKeyDown("4") && HaveBigBullet == true)
-        {
-            UsingBullet = 3;
-            Debug.Log("Pelota4");
-        }*/
-
         if (MenuManager.CantMove == false)
         {
             if (Input.GetButtonDown("Fire1") && CDR>= 0.5 && UsingBullet == 0)

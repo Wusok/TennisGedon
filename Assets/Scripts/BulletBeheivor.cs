@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BulletBeheivor : MonoBehaviour
 {
-    [SerializeField] private float Velocity = 2f;
+    //[SerializeField] public un private
+
+    private float Velocity = 50f;
     public float FallVelocity = 0.01f;
-    private float AngularVelocity = 500;
+    private float AngularVelocity = 2500;
     private float Sidex;
     Rigidbody Rb;
     public float DownTime = 0;
@@ -15,26 +17,13 @@ public class BulletBeheivor : MonoBehaviour
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        //Rb.velocity = transform.forward * Velocity * Time.deltaTime;
         Sidex = NewPJSMove.x;
 
         if (Sidex > 0)
-            Rb.AddForce(transform.right * (Sidex+1) * AngularVelocity);
+            Rb.AddForce(transform.right * (1) * AngularVelocity);
         else if (Sidex < 0)
-            Rb.AddForce(transform.right * (Sidex -1) * AngularVelocity);
+            Rb.AddForce(transform.right * (-1) * AngularVelocity);
 
-        /*if (Side == 1)
-        {
-            Debug.Log("Lado1");
-            Rb.AddForce(transform.right * AngularVelocity);
-        }
-        else if (Side == -1)
-        {
-            Debug.Log("Lado2");
-            Rb.AddForce(-transform.right * AngularVelocity);
-        }*/
-
-        //Rb.AddForce(transform.forward * Sidez * AngularVelocity);
         WhatIsThisBall = Bullet.UsingBullet;
     }
 
