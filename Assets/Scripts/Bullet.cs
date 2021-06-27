@@ -41,19 +41,21 @@ public class Bullet : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && CDR>= 0.5 && UsingBullet == 0)
             {
+                Debug.Log("Spawn");
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                Debug.Log(OneBullet.transform.position);
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
-            else if (Input.GetButtonDown("Fire1") && CDR >= 1 && UsingBullet == 1)
+            else if (Input.GetButtonDown("Fire1") && CDR >= 1.5 && UsingBullet == 1)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
-            else if (Input.GetButtonDown("Fire1") && CDR >= 0.75 && UsingBullet == 2)
+            else if (Input.GetButtonDown("Fire1") && CDR >= 1 && UsingBullet == 2)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);

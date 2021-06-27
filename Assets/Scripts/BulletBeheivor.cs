@@ -38,34 +38,11 @@ public class BulletBeheivor : MonoBehaviour
         transform.position += transform.forward * Time.deltaTime * Velocity;
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag != "Player")
         {
-            if (other.gameObject.tag != "IW")
-            {
-                Destroy(gameObject);
-            } 
-        }
-
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
-
-        if(other.gameObject.tag == "Water" && WhatIsThisBall == 1)
-        {
-            GameObject ThisIce = Instantiate(Ice, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
-        }
-
-        if (other.gameObject.tag == "SpecialWall" && WhatIsThisBall == 2)
-        {
-            Destroy(other.gameObject);
+            //Destroy(gameObject);
         }
     }
 }

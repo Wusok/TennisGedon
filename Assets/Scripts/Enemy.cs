@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if(MenuManager.CantMove == false)
+        if (MenuManager.CantMove == false)
         {
             if (Vector3.Distance(Player.position, transform.position) < 30)
             {
@@ -41,9 +41,9 @@ public class Enemy : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, rotate, damp * Time.deltaTime);
                 if (CDR >= 2 && NotFreezing == true)
                 {
-                    GameObject OneBullet = Instantiate(EnemyBullet, transform.position + new Vector3 (1, 0.5f, 0), transform.rotation);
+                    GameObject OneBullet = Instantiate(EnemyBullet, transform.position + new Vector3(1, 0.5f, 0), transform.rotation);
                     Destroy(OneBullet, 5f);
-                    if(CanFrezze == false)
+                    if (CanFrezze == false)
                     {
                         CanFrezze = true;
                     }
@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
                 }
                 CDR += 1 * Time.deltaTime;
             }
-            if(NotFreezing == false)
+            if (NotFreezing == false)
             {
                 if (FreezeTime >= 3)
                 {
@@ -64,33 +64,32 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Pelota")
         {
             audiosource.PlayOneShot(normalhit);
-            ThisEnemy += -1;
+            ThisEnemy += -2;
             //Debug.Log(ThisEnemy);
         }
         if (other.gameObject.tag == "IceBall")
         {
             audiosource.PlayOneShot(icehit);
             Rend.material = Freeze;
-            ThisEnemy = ThisEnemy - 0.5f;
-            //Debug.Log(ThisEnemy);
-            if(CanFrezze == true)
+            ThisEnemy += -0.5f;
+            if (CanFrezze == true)
             {
                 NotFreezing = false;
             }
         }
 
-        if(other.gameObject.tag == "ExplosiveBall")
+        if (other.gameObject.tag == "ExplosiveBall")
         {
             audiosource.PlayOneShot(explosivehit);
-            ThisEnemy = ThisEnemy - 1.5f;
+            ThisEnemy += -1f;
         }
-        
+
         if (ThisEnemy <= 0)
         {
             Destroy(gameObject);
