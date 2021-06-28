@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class UIManager : MonoBehaviour
     public GameObject YellowLife;
     public GameObject RedLife;
 
-    public static int Weapon;
     public static int Ball;
     private bool While = false;
 
@@ -35,27 +35,19 @@ public class UIManager : MonoBehaviour
     public GameObject FourEB;
     public GameObject FourHB;
 
-    [Header("Primer Slot")]
-    [Header("Armas")]
-    public GameObject FWeapon1;
-    public GameObject FWeapon2;
-    public GameObject FWeapon3;
-    public GameObject FWeapon4;
-    [Header("Segundo Slot")]
-    public GameObject SWeapon1;
-    public GameObject SWeapon2;
-    public GameObject SWeapon1G;
+    public Image circleTimer;
+    public static bool dontHave;
+    public static bool usingHability;
 
-    [Header("Tercer Slot")]
-    public GameObject TWeapon1;
-    public GameObject TWeapon2;
-    public GameObject TWeapon1G;
+    public GameObject MultiG;
+    public GameObject Multi;
+    public GameObject RapidG;
+    public GameObject Rapid;
 
-    [Header("Cuarto Slot")]
-    public GameObject FoWeapon1;
-    public GameObject FoWeapon2;
-    public GameObject FoWeapon1G;
+    public GameObject habilitiesPanel;
 
+    public static bool HaveMulti;
+    public static bool HaveRapid;
 
     void Start()
     {
@@ -84,115 +76,49 @@ public class UIManager : MonoBehaviour
             RedLife.gameObject.SetActive(true);
         }
 
+        Hability();
+
+        /*if(circleTimer.fillAmount != 1f)
+        {
+            circleTimer.fillAmount += 0.0001f;
+        }*/
+
         if (Input.GetKeyDown("e"))
             Balls();
-        if (Input.GetKeyDown("q"))
-            Weapons();
     }
 
 
-    void Weapons()
+    void Hability()
     {
-        if (Weapon < 3)
-            Weapon += 1;
-        else
-            Weapon = 0;
-
-        while (While == false)
+        if (HaveMulti)
         {
-            if (Weapon == 0)
-            {
-                FWeapon1.gameObject.SetActive(true);
-                FWeapon2.gameObject.SetActive(false);
-                FWeapon3.gameObject.SetActive(false);
-                FWeapon4.gameObject.SetActive(false);
-
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-
-                TWeapon1.gameObject.SetActive(true);
-                TWeapon2.gameObject.SetActive(false);
-
-                FoWeapon1.gameObject.SetActive(true);
-                FoWeapon2.gameObject.SetActive(false);
-
-                While = true;
-            }
-
-            if (Weapon == 1 && Bullet.MeleRacket == true)
-            {
-                FWeapon1.gameObject.SetActive(false);
-                FWeapon2.gameObject.SetActive(true);
-                FWeapon3.gameObject.SetActive(false);
-                FWeapon4.gameObject.SetActive(false);
-
-                SWeapon1.gameObject.SetActive(false);
-                SWeapon2.gameObject.SetActive(true);
-
-                TWeapon1.gameObject.SetActive(true);
-                TWeapon2.gameObject.SetActive(false);
-
-                FoWeapon1.gameObject.SetActive(true);
-                FoWeapon2.gameObject.SetActive(false);
-
-                While = true;
-            }
-            else if (Weapon == 1 && Bullet.MeleRacket == false)
-            {
-                Weapon++;
-            }
-
-            if (Weapon == 2 && Bullet.MultiRacket == true)
-            {
-                FWeapon1.gameObject.SetActive(false);
-                FWeapon2.gameObject.SetActive(false);
-                FWeapon3.gameObject.SetActive(true);
-                FWeapon4.gameObject.SetActive(false);
-
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-
-                TWeapon1.gameObject.SetActive(false);
-                TWeapon2.gameObject.SetActive(true);
-
-                FoWeapon1.gameObject.SetActive(true);
-                FoWeapon2.gameObject.SetActive(false);
-
-                While = true;
-            }
-            else if (Weapon == 2 && Bullet.MultiRacket == false)
-            {
-                Weapon++;
-            }
-
-            if (Weapon == 3 && Bullet.RapidRacket == true)
-            {
-                FWeapon1.gameObject.SetActive(false);
-                FWeapon2.gameObject.SetActive(false);
-                FWeapon3.gameObject.SetActive(false);
-                FWeapon4.gameObject.SetActive(true);
-
-                SWeapon1.gameObject.SetActive(true);
-                SWeapon2.gameObject.SetActive(false);
-
-                TWeapon1.gameObject.SetActive(true);
-                TWeapon2.gameObject.SetActive(false);
-
-                FoWeapon1.gameObject.SetActive(false);
-                FoWeapon2.gameObject.SetActive(true);
-
-                While = true;
-            }
-            else if (Weapon == 3 && Bullet.RapidRacket == false)
-            {
-                Weapon=0;
-            }
+            Multi.gameObject.SetActive(true);
+            MultiG.gameObject.SetActive(false);
         }
 
-        While = false;
-        Bullet.UsingWeapon = Weapon;
-    }
+        if (HaveRapid)
+        {
+            Rapid.gameObject.SetActive(true);
+            RapidG.gameObject.SetActive(false);
+        }
 
+
+        if (Input.GetKey("tab"))
+        {
+            habilitiesPanel.gameObject.SetActive(true);
+            ControllCamera.cameraOn = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+        }
+        else if (Input.GetKeyUp("tab"))
+        {
+            habilitiesPanel.gameObject.SetActive(false);
+            ControllCamera.cameraOn = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
 
     void Balls()
     {
