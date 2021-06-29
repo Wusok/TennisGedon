@@ -3030,7 +3030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb3f357ae8261d438ef355f932b1383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slidersensibilidad: {fileID: 0}
+  slidersensibilidad: {fileID: 1725559783}
 --- !u!4 &1886874738
 Transform:
   m_ObjectHideFlags: 0

@@ -61,11 +61,11 @@ public class NewPJSMove : MonoBehaviour
     {
         if (isDashing == false)
         {
-            if (ThisLVL != NextLVL)
+            /*if (ThisLVL != NextLVL)
             {
                 EnableCheckPoints = false;
                 ThisLVL = NextLVL;
-            }
+            }*/
 
             HorizontalMove = Input.GetAxisRaw("Horizontal");
             VerticalMove = Input.GetAxisRaw("Vertical");
@@ -223,10 +223,12 @@ public class NewPJSMove : MonoBehaviour
     IEnumerator Dash()
     {
         Debug.Log("Corutine");
-        speed = speed * 15;
+        //speed = speed * 15;
+        rb.AddForce(playerInput * 2000, ForceMode.Force);
         yield return new WaitForSeconds(0.1f);
+        rb.velocity -= 1f * rb.velocity;
         Debug.Log("termino cr");
-        speed = speed / 4;
+        //speed = speed / 15;
         isDashing = false;
     }
 }

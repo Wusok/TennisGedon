@@ -14,6 +14,9 @@ public class BulletBeheivor : MonoBehaviour
     public float DownTime = 0;
     public GameObject Ice;
     private int WhatIsThisBall;
+    public GameObject particulasNormalHit;
+    public GameObject particulasIceHit;
+    public GameObject particulasExplosiveHit;
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
@@ -42,6 +45,18 @@ public class BulletBeheivor : MonoBehaviour
     {
         if (other.gameObject.tag != "Player")
         {
+            if(WhatIsThisBall == 0)
+            {
+                Instantiate(particulasNormalHit, transform.position, transform.rotation);
+            }
+            else if(WhatIsThisBall == 1)
+            {
+                Instantiate(particulasIceHit, transform.position, transform.rotation);
+            }
+            else if (WhatIsThisBall == 2)
+            {
+                Instantiate(particulasExplosiveHit, transform.position, transform.rotation);
+            }
             //Destroy(gameObject);
         }
     }

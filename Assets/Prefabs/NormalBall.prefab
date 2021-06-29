@@ -111,6 +111,10 @@ MonoBehaviour:
   FallVelocity: 750
   DownTime: 0
   Ice: {fileID: 6401239380732936862, guid: 71551038bd75f11459a0d2dc1871abfc, type: 3}
+  particulasNormalHit: {fileID: 7785600720955660055, guid: 5b68669c039c21640a6d761cf7859d2e,
+    type: 3}
+  particulasIceHit: {fileID: 0}
+  particulasExplosiveHit: {fileID: 0}
 --- !u!54 &8620252016857926617
 Rigidbody:
   m_ObjectHideFlags: 0
