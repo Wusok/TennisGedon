@@ -34,7 +34,7 @@ public class NewPJSMove : MonoBehaviour
     bool isGrounded;
     bool dobleJump = false;
     bool canDJ = false;
-    float jumpBoostForce = 20;
+    float jumpBoostForce = 30;
 
     public static float x;
 

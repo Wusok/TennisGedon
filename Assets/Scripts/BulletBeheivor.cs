@@ -13,7 +13,7 @@ public class BulletBeheivor : MonoBehaviour
     Rigidbody Rb;
     public float DownTime = 0;
     public GameObject Ice;
-    private int WhatIsThisBall;
+    public int WhatIsThisBall;
     public GameObject particulasNormalHit;
     public GameObject particulasIceHit;
     public GameObject particulasExplosiveHit;
