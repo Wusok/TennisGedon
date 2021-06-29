@@ -16,8 +16,8 @@ public class NewPJSMove : MonoBehaviour
     private float speed;
     private float runSpeed = 14;
     private float walkSpeed = 7;
-    public float gravity = 20f;
-    private float jumpforce = 6f;
+    public float gravity = 0.5f;
+    private float jumpforce = 10f;
     public static int Life = 6;
     public static int MoveSide;
     private float resettimer = 0;
@@ -34,7 +34,7 @@ public class NewPJSMove : MonoBehaviour
     bool isGrounded;
     bool dobleJump = false;
     bool canDJ = false;
-    float jumpBoostForce = 8;
+    float jumpBoostForce = 20;
 
     public static float x;
 
@@ -114,6 +114,11 @@ public class NewPJSMove : MonoBehaviour
         {
             resettimer = 0;
         }
+
+        if (isGrounded == false)
+        {
+            rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
+        }
         //Debug.Log(Life);
     }
 
@@ -190,6 +195,7 @@ public class NewPJSMove : MonoBehaviour
         }
         if (other.gameObject.tag == "JumpBoost")
         {
+            rb.velocity -= 1f * rb.velocity;
             rb.AddForce(transform.up * jumpBoostForce, ForceMode.Impulse);
         }
     }
@@ -203,12 +209,6 @@ public class NewPJSMove : MonoBehaviour
             {
                 dobleJump = true;
             }
-        }
-
-        if (collision.gameObject.tag == "Wall" && isDashing == true)
-        {
-            speed = speed / 4;
-            isDashing = false;
         }
     }
 

@@ -47,17 +47,20 @@ public class BulletBeheivor : MonoBehaviour
         {
             if(WhatIsThisBall == 0)
             {
-                Instantiate(particulasNormalHit, transform.position, transform.rotation);
+                GameObject normal = Instantiate(particulasNormalHit, transform.position, transform.rotation);
+                Destroy(normal, 1f);
             }
             else if(WhatIsThisBall == 1)
             {
-                Instantiate(particulasIceHit, transform.position, transform.rotation);
+                GameObject ice = Instantiate(particulasIceHit, transform.position, transform.rotation);
+                Destroy(ice, 1f);
             }
             else if (WhatIsThisBall == 2)
             {
-                Instantiate(particulasExplosiveHit, transform.position, transform.rotation);
+                GameObject explosive = Instantiate(particulasExplosiveHit, transform.position, transform.rotation);
+                Destroy(explosive, 1f);
             }
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
