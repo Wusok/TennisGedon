@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public static bool CantMove = false;
     public GameObject Option;
     public GameObject Cross;
     public int ThisLVL;
+    private bool esc = false;
 
     // Start is called before the first frame update
     private void Awake()
     {
         NewPJSMove.NextLVL = ThisLVL;
         MenuOff();
-        CantMove = false;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -22,19 +22,21 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
-            if(CantMove == false)
+            if(esc == false)
             {
                 Debug.Log("Apreto");
+                Time.timeScale = 0;
                 MenuOn();
-                CantMove = true;
+                esc = true;
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
             }
-            else if (CantMove == true)
+            else if (esc == true)
             {
                 Debug.Log("ApretoOff");
+                Time.timeScale = 1;
                 MenuOff();
-                CantMove = false;
+                esc = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }

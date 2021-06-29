@@ -84,7 +84,23 @@ public class UIManager : MonoBehaviour
         }*/
 
         if (Input.GetKeyDown("e"))
-            Balls();
+        {
+            if (Ball < 3)
+                Ball += 1;
+            else
+                Ball = 0;
+            BallsUp();
+        }
+
+        if (Input.GetKeyDown("q"))
+        {
+            if (Ball > 0)
+                Ball += -1;
+            else
+                Ball = 3;
+            BallsDown();
+        }
+
     }
 
 
@@ -120,12 +136,132 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void Balls()
+    void BallsDown()
     {
-        if (Ball < 3)
-            Ball += 1;
-        else
-            Ball = 0;
+
+
+        while (While == false)
+        {
+            if (Ball == 0)
+            {
+                FirstNB.gameObject.SetActive(true);
+                FirstIB.gameObject.SetActive(false);
+                FirstEB.gameObject.SetActive(false);
+                FirstHB.gameObject.SetActive(false);
+
+                SecondNB.gameObject.SetActive(false);
+                SecondIB.gameObject.SetActive(true);
+                SecondEB.gameObject.SetActive(false);
+                SecondHB.gameObject.SetActive(false);
+
+                ThirdNB.gameObject.SetActive(false);
+                ThirdIB.gameObject.SetActive(false);
+                ThirdEB.gameObject.SetActive(true);
+                ThirdHB.gameObject.SetActive(false);
+
+                FourNB.gameObject.SetActive(false);
+                FourIB.gameObject.SetActive(false);
+                FourEB.gameObject.SetActive(false);
+                FourHB.gameObject.SetActive(true);
+
+                While = true;
+            }
+            if (Ball == 1 && Bullet.HaveIceBullet)
+            {
+                FirstNB.gameObject.SetActive(false);
+                FirstIB.gameObject.SetActive(true);
+                FirstEB.gameObject.SetActive(false);
+                FirstHB.gameObject.SetActive(false);
+
+                SecondNB.gameObject.SetActive(true);
+                SecondIB.gameObject.SetActive(false);
+                SecondEB.gameObject.SetActive(false);
+                SecondHB.gameObject.SetActive(false);
+
+                ThirdNB.gameObject.SetActive(false);
+                ThirdIB.gameObject.SetActive(false);
+                ThirdEB.gameObject.SetActive(true);
+                ThirdHB.gameObject.SetActive(false);
+
+                FourNB.gameObject.SetActive(false);
+                FourIB.gameObject.SetActive(false);
+                FourEB.gameObject.SetActive(false);
+                FourHB.gameObject.SetActive(true);
+
+                While = true;
+            }
+            else if (Ball == 1 && Bullet.HaveIceBullet == false)
+            {
+                Ball--;
+            }
+
+            if (Ball == 2 && Bullet.HaveExplosiveBullet)
+            {
+                FirstNB.gameObject.SetActive(false);
+                FirstIB.gameObject.SetActive(false);
+                FirstEB.gameObject.SetActive(true);
+                FirstHB.gameObject.SetActive(false);
+
+                SecondNB.gameObject.SetActive(false);
+                SecondIB.gameObject.SetActive(true);
+                SecondEB.gameObject.SetActive(false);
+                SecondHB.gameObject.SetActive(false);
+
+                ThirdNB.gameObject.SetActive(true);
+                ThirdIB.gameObject.SetActive(false);
+                ThirdEB.gameObject.SetActive(false);
+                ThirdHB.gameObject.SetActive(false);
+
+                FourNB.gameObject.SetActive(false);
+                FourIB.gameObject.SetActive(false);
+                FourEB.gameObject.SetActive(false);
+                FourHB.gameObject.SetActive(true);
+
+                While = true;
+            }
+            else if (Ball == 2 && Bullet.HaveExplosiveBullet == false)
+            {
+                Ball--;
+            }
+
+            if (Ball == 3 && Bullet.HaveBigBullet)
+            {
+                FirstNB.gameObject.SetActive(false);
+                FirstIB.gameObject.SetActive(false);
+                FirstEB.gameObject.SetActive(false);
+                FirstHB.gameObject.SetActive(true);
+
+                SecondNB.gameObject.SetActive(false);
+                SecondIB.gameObject.SetActive(true);
+                SecondEB.gameObject.SetActive(false);
+                SecondHB.gameObject.SetActive(false);
+
+                ThirdNB.gameObject.SetActive(false);
+                ThirdIB.gameObject.SetActive(false);
+                ThirdEB.gameObject.SetActive(true);
+                ThirdHB.gameObject.SetActive(false);
+
+                FourNB.gameObject.SetActive(true);
+                FourIB.gameObject.SetActive(false);
+                FourEB.gameObject.SetActive(false);
+                FourHB.gameObject.SetActive(false);
+
+                While = true;
+            }
+            else if (Ball == 3 && Bullet.HaveBigBullet == false)
+            {
+                Ball--; ;
+            }
+            Debug.Log(Ball);
+        }
+
+        While = false;
+        Bullet.UsingBullet = Ball;
+    }
+
+    void BallsUp()
+    {
+        
 
         while (While == false)
         {

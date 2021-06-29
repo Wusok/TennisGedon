@@ -27,7 +27,7 @@ public class NewPJSMove : MonoBehaviour
     public static int NextLVL = 1;
     private int ThisLVL = -1;
     public static float dash = 1.6f;
-    private bool canDash =true;
+    private bool canDash = true;
     private bool isDashing = false;
     private float movementMagnitud;
     private Rigidbody rb;
@@ -59,50 +59,47 @@ public class NewPJSMove : MonoBehaviour
 
     void Update()
     {
-        if (MenuManager.CantMove == false)
+        if (isDashing == false)
         {
-            if (isDashing == false)
+            if (ThisLVL != NextLVL)
             {
-                if (ThisLVL != NextLVL)
-                {
-                    EnableCheckPoints = false;
-                    ThisLVL = NextLVL;
-                }
-
-                HorizontalMove = Input.GetAxisRaw("Horizontal");
-                VerticalMove = Input.GetAxisRaw("Vertical");
-
-                movementMagnitud = playerInput.magnitude;
-
-                playerInput = transform.right * HorizontalMove + transform.forward * VerticalMove * Mathf.Abs(VerticalMove);
-
-                playerInput.y = 0;
-
+                EnableCheckPoints = false;
+                ThisLVL = NextLVL;
             }
 
-            if (movementMagnitud > 1)
-            {
-                rb.MovePosition(transform.position + playerInput.normalized * (speed * Time.deltaTime));
-                movementMagnitud = 1;
-            }
-            else
-                rb.MovePosition(transform.position + playerInput * (speed * Time.deltaTime));
+            HorizontalMove = Input.GetAxisRaw("Horizontal");
+            VerticalMove = Input.GetAxisRaw("Vertical");
 
-            if (canDash == false)
-            {
-                dash += 1 * Time.deltaTime;
-                if (dash > 1.5f)
-                {
-                    canDash = true;
-                }
-            }
-            else
-                dash = 0;
+            movementMagnitud = playerInput.magnitude;
 
-            PlayerSkills();
+            playerInput = transform.right * HorizontalMove + transform.forward * VerticalMove * Mathf.Abs(VerticalMove);
 
-            x = HorizontalMove;
+            playerInput.y = 0;
+
         }
+
+        if (movementMagnitud > 1)
+        {
+            rb.MovePosition(transform.position + playerInput.normalized * (speed * Time.deltaTime));
+            movementMagnitud = 1;
+        }
+        else
+            rb.MovePosition(transform.position + playerInput * (speed * Time.deltaTime));
+
+        if (canDash == false)
+        {
+            dash += 1 * Time.deltaTime;
+            if (dash > 1.5f)
+            {
+                canDash = true;
+            }
+        }
+        else
+            dash = 0;
+
+        PlayerSkills();
+
+        x = HorizontalMove;
 
         if (Input.GetKey("p"))
         {
@@ -128,13 +125,13 @@ public class NewPJSMove : MonoBehaviour
             Debug.Log("Saltar");
         }
 
-        if(Input.GetButtonDown("Jump") && isGrounded == false && dobleJump == true)
+        if (Input.GetButtonDown("Jump") && isGrounded == false && dobleJump == true)
         {
             rb.AddForce(transform.up * jumpforce, ForceMode.Impulse);
             dobleJump = false;
         }
 
-        if(isDashing == false)
+        if (isDashing == false)
         {
             if (Input.GetButton("Sprint"))
             {
@@ -185,13 +182,13 @@ public class NewPJSMove : MonoBehaviour
         {
             //other.GetComponent<Enemy>().EnemyLife
         }*/
-        if(other.gameObject.tag == "Boots")
+        if (other.gameObject.tag == "Boots")
         {
             canDJ = true;
             dobleJump = true;
             Destroy(other.gameObject);
         }
-        if(other.gameObject.tag == "JumpBoost")
+        if (other.gameObject.tag == "JumpBoost")
         {
             rb.AddForce(transform.up * jumpBoostForce, ForceMode.Impulse);
         }
@@ -206,6 +203,12 @@ public class NewPJSMove : MonoBehaviour
             {
                 dobleJump = true;
             }
+        }
+
+        if (collision.gameObject.tag == "Wall" && isDashing == true)
+        {
+            speed = speed / 4;
+            isDashing = false;
         }
     }
 

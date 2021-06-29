@@ -13,13 +13,11 @@ public class SceneManager2 : MonoBehaviour
 
     public void MenuScene(string Menu)
     {
-        MenuManager.CantMove = false;
         SceneManager.LoadScene(Menu);
     }
 
     public void RestartScene()
     {
-        MenuManager.CantMove = false;
         SceneManager.LoadScene(ThisScene);
     }
 }

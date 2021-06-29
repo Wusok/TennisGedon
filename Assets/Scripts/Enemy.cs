@@ -33,8 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (MenuManager.CantMove == false)
-        {
+        
             if (Vector3.Distance(Player.position, transform.position) < 30)
             {
                 var rotate = Quaternion.LookRotation(Player.position - transform.position);
@@ -61,7 +60,7 @@ public class Enemy : MonoBehaviour
                 }
                 FreezeTime += 1 * Time.deltaTime;
             }
-        }
+      
     }
 
 

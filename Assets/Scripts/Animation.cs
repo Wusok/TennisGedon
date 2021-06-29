@@ -18,15 +18,12 @@ public class Animation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MenuManager.CantMove == false)
+        if (Input.GetButtonDown("Fire1") && CDR >= 0.5)
         {
-            if (Input.GetButtonDown("Fire1") && CDR >= 0.5)
-            {
-                Shotting = true;
-                Anima.SetBool("Shotting", Shotting);
-                CDR = 0;
-                ANimationTime = 0;
-            }
+            Shotting = true;
+            Anima.SetBool("Shotting", Shotting);
+            CDR = 0;
+            ANimationTime = 0;
         }
         CDR += 1 * Time.deltaTime;
         if(ANimationTime >= 0.5)
