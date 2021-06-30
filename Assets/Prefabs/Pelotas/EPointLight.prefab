@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1115265800070960393}
   - component: {fileID: 7213631852030232610}
   m_Layer: 0
-  m_Name: IPointLight
+  m_Name: EPointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 9
   m_Type: 2
-  m_Color: {r: 0.0627451, g: 0.38558426, b: 0.41568628, a: 1}
+  m_Color: {r: 0.41568628, g: 0.0660976, b: 0.0627451, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30

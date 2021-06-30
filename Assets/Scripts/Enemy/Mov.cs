@@ -5,23 +5,31 @@ using UnityEngine;
 public class Mov : MonoBehaviour
 {
     GameObject player;
-    int life = 10;
-    float damp = 3;
+    float life = 10;
     Rigidbody rb;
     int speed = 10;
     float range = 3f;
     bool stay = false;
     bool jumping = false;
-    int jumpForce = 30;
-    int jumpSpeed = 5;
+    int jumpForce = 20;
+    int jumpSpeed = 2;
     bool isGround;
-    float gravity = 0.5f;
-    bool moveJump = false;
-    Vector3 rotacion;
+    float rangeDown = 2f;
+
+    bool rayCast;
+
+    public Material dmg;
+    public Material normal;
+    public Material freeze;
+
+    Renderer rend;
+
+    bool freezing;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rend = GetComponent<Renderer>();
     }
 
     private void Awake()
@@ -32,35 +40,51 @@ public class Mov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stay == false)
+        if (freezing == false)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 30)
+            if (stay == false)
             {
-                //var rotate = transform.LookAt(player.transform.position - transform.position);
-                //rotate = Quaternion.Euler(new Vector3(0, rotate.y, rotate.z));
-                transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+                //Debug.Log("stay");
+                if (Vector3.Distance(player.transform.position, transform.position) < 30 && jumping == false)
+                {
+                    //Debug.Log("piso");
 
-                //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y, transform.rotation.z));
+                    //var rotate = transform.LookAt(player.transform.position - transform.position);
+                    //rotate = Quaternion.Euler(new Vector3(0, rotate.y, rotate.z));
+                    transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
-                transform.position += transform.forward * speed * Time.deltaTime;
+                    //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y, transform.rotation.z));
+
+                    transform.position += transform.forward * speed * Time.deltaTime;
+                }
             }
-        }
 
-        RayCast();
-        if (moveJump)
-        {
-            transform.position += transform.forward * jumpSpeed * Time.deltaTime;
+            RayCastFloor();
+            RayCast();
+
+            if(isGround && jumping == false && rayCast == false)
+            {
+                stay = false;
+            }
+
+            if (jumping == false)
+                stay = false;
+
+            if (jumping && isGround)
+            {
+                isGround = false;
+            }
+
+            if (jumping)
+            {
+                transform.position += transform.forward * jumpSpeed * Time.deltaTime;
+            }
+
             if (isGround)
-            {
-                moveJump = false;
-            }
+                jumping = false;
+            else
+                jumping = true;
         }
-        
-        if (isGround == false)
-        {
-            rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
-        }
-
     }
 
     void RayCast()
@@ -69,45 +93,44 @@ public class Mov : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * range, new Color(1, 0, 0));
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            Debug.Log(hit.collider.tag);
-            if (hit.collider.tag == "Wall" && isGround == true)
+            rayCast = true;
+            if (hit.collider.tag == null)
+            {
+                stay = false;
+            }
+
+            if (hit.collider.tag == "Wall" && isGround == true && jumping == false)
             {
                 stay = true;
-                //jumping = true;
+                //Debug.Log("se");
+                jumping = true;
                 rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-                StartCoroutine(WaitJump());
-                
             }
             else if (hit.collider.tag != "Wall" && isGround == true)
             {
                 stay = false;
             }
         }
-    }
-
-
-    IEnumerator WaitJump()
-    {
-        yield return new WaitForSeconds(0.1f);
-        if(isGround == false)
+        else if(Physics.Raycast(transform.position, transform.forward, out hit, range) == false)
         {
-            moveJump = true;
+            rayCast = false;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void RayCastFloor()
     {
-        if(collision.gameObject.tag == "Floor")
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, transform.up * -1 * range, new Color(1, 0, 0));
+        if (Physics.Raycast(transform.position, transform.up * -1, out hit, rangeDown))
         {
-            isGround = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isGround = false;
+            if (hit.collider.tag == "Floor")
+            {
+                isGround = true;
+            }
+            else
+            {
+                isGround = false;
+            }
         }
     }
 
@@ -115,14 +138,51 @@ public class Mov : MonoBehaviour
     {
         if (other.gameObject.tag == "Pelota")
         {
-            if(other.GetComponent<BulletBeheivor>().WhatIsThisBall == 1)
+            if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 0)
             {
-
+                Debug.Log("1");
+                life -= 3;
+                rend.material = dmg;
+                StartCoroutine(ReturnMaterial());
             }
-            /*if(bB.WhatIsThisBullet == 1)
+            else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 1)
             {
-
-            }*/
+                Debug.Log("2");
+                life -= 1.5f;
+                rend.material = freeze;
+                StartCoroutine(ReturnMaterialAF());
+            }
+            else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 2)
+            {
+                Debug.Log("3");
+                life -= 2f;
+                rend.material = dmg;
+                StartCoroutine(ReturnMaterial());
+            }
         }
+
+        if (other.gameObject.tag == "Explosion")
+        {
+            life -= 1f;
+        }
+
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    IEnumerator ReturnMaterialAF()
+    {
+        freezing = true;
+        yield return new WaitForSeconds(1f);
+        freezing = false;
+        rend.material = normal;
+    }
+
+    IEnumerator ReturnMaterial()
+    {
+        yield return new WaitForSeconds(0.3f);
+        rend.material = normal;
     }
 }

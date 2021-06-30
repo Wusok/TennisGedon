@@ -17,6 +17,7 @@ public class BulletBeheivor : MonoBehaviour
     public GameObject particulasNormalHit;
     public GameObject particulasIceHit;
     public GameObject particulasExplosiveHit;
+    public GameObject explosion;
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
@@ -58,6 +59,7 @@ public class BulletBeheivor : MonoBehaviour
             else if (WhatIsThisBall == 2)
             {
                 GameObject explosive = Instantiate(particulasExplosiveHit, transform.position, transform.rotation);
+                GameObject explosionWait = Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(explosive, 1f);
             }
             Destroy(gameObject);
