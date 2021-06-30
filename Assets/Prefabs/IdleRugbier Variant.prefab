@@ -110,7 +110,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8701704080409983264
+--- !u!114 &2259107459689241137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,15 +119,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4081073323177757357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552f01ae5ca837043a3268bef8176762, type: 3}
+  m_Script: {fileID: 11500000, guid: 89db2fbc45112c448b65fee054edd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  player: {fileID: 0}
-  behaviorRefetence: {fileID: 0}
-  normalhit: {fileID: 8300000, guid: bcfa5c494141dad4099f3e81c8490f46, type: 3}
-  icehit: {fileID: 8300000, guid: 1f4b4c397573fd84cb673351da8d28d5, type: 3}
-  explosivehit: {fileID: 8300000, guid: 8116d66888c1aaa4eb06c445cfde4119, type: 3}
+  player: {fileID: 9042780019950035870, guid: 897492f4bc20e9e418e294d9d916950c, type: 3}
+  dmg: {fileID: 2100000, guid: a4450ae018dc50540a8aa4096eaffb3f, type: 2}
+  freeze: {fileID: 2100000, guid: 940202aa58f2d974e8a7fc7bbb55aad1, type: 2}
+  normal: {fileID: 0}
+  playerlook: {x: 0, y: 0, z: 0}
+  distanciaPlayer: 0
+  lineofsite: 0
+  bootcolision: 0
+  walls: 0
+  speed: 10
+  jump: 0
 --- !u!1001 &5441209846422180772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +150,11 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5242429107491630033, guid: 672cf43d752093a45b54ca6a40c71195,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c573e5377a6b0a4a90a1e18ccdf9844, type: 2}
     - target: {fileID: -4216859302048453862, guid: 672cf43d752093a45b54ca6a40c71195,
         type: 3}
       propertyPath: m_LocalPosition.x
