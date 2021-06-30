@@ -342,7 +342,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2727306681499188310
 MonoBehaviour:
@@ -360,6 +360,7 @@ MonoBehaviour:
   VerticalMove: 0
   fallvelocity: 0
   gravity: 20
+  jumpforce: 10
   hitsound: {fileID: 8300000, guid: 49a52b087d8f0834599762fa513a8fdd, type: 3}
 --- !u!82 &3551746552566612047
 AudioSource:
