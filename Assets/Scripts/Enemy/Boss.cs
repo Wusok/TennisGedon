@@ -7,6 +7,8 @@ public class Boss : MonoBehaviour
     GameObject player;
     float speed = 4;
 
+    public Animator anima;
+
     public GameObject triggerOne;
     public GameObject triggerTwo;
     public GameObject triggerThree;
@@ -18,7 +20,6 @@ public class Boss : MonoBehaviour
     public GameObject particulasGolpe;
 
     public GameObject areaGH;
-    bool da = true;
     bool move = true;
 
     bool doHablity = true;
@@ -37,6 +38,8 @@ public class Boss : MonoBehaviour
     {
         if (move == true)
         {
+            Run();
+
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
             transform.position += transform.forward * speed * Time.deltaTime;
@@ -54,11 +57,46 @@ public class Boss : MonoBehaviour
                 timer += 1 * Time.deltaTime;
             }
             else
+            {
                 timer = 0;
+                Idle();
+            }
 
             PlusTriggers();
             Habilitys();
         }
+    }
+
+    void Idle()
+    {
+        anima.SetBool("idle", true);
+        anima.SetBool("2manos", false);
+        anima.SetBool("run", false);
+        anima.SetBool("patada", false);
+    }
+
+    void Mandoble()
+    {
+        anima.SetBool("idle", false);
+        anima.SetBool("2manos", true);
+        anima.SetBool("run", false);
+        anima.SetBool("patada", false);
+    }
+
+    void Run()
+    {
+        anima.SetBool("idle", false);
+        anima.SetBool("2manos", false);
+        anima.SetBool("run", true);
+        anima.SetBool("patada", false);
+    }
+
+    void Patada()
+    {
+        anima.SetBool("idle", false);
+        anima.SetBool("2manos", false);
+        anima.SetBool("run", false);
+        anima.SetBool("patada", true);
     }
 
     void Habilitys()
@@ -107,6 +145,8 @@ public class Boss : MonoBehaviour
 
     IEnumerator GrowndHit()
     {
+        Mandoble();
+        yield return new WaitForSeconds(1);
         if (doHablity == true)
         {
             Instantiate(areaGH, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z), transform.rotation);
@@ -116,7 +156,7 @@ public class Boss : MonoBehaviour
             Destroy(par2, 1f);
         }
         Debug.Log("habilideda1");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(4);
         doHablity = false;
         Debug.Log("habilideda1fin");
     }
