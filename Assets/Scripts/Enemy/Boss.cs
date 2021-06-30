@@ -15,8 +15,17 @@ public class Boss : MonoBehaviour
     bool two = false;
     bool three = false;
 
+    public GameObject particulasGolpe;
+
     public GameObject areaGH;
     bool da = true;
+    bool move = true;
+
+    bool doHablity = true;
+    bool inRange = false;
+    int hability;
+
+    float timer;
 
     void Start()
     {
@@ -26,26 +35,57 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        if (move == true)
+        {
+            transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
 
-        transform.position += transform.forward * speed * Time.deltaTime;
-        PlusTriggers();
-        Habilitys();
+            transform.position += transform.forward * speed * Time.deltaTime;
+
+            if (inRange == true)
+            {
+                if (timer > 2)
+                {
+                    hability = Random.Range(1, 4);
+                    Debug.Log("timer");
+                    doHablity = true;
+                    timer = 0;
+                }
+
+                timer += 1 * Time.deltaTime;
+            }
+            else
+                timer = 0;
+
+            PlusTriggers();
+            Habilitys();
+        }
     }
 
     void Habilitys()
     {
-        if(one == true)
+        if (one || two || three)
+        {
+            inRange = true;
+        }
+        else if(one == false && two == false && three == false)
+        {
+            inRange = false;
+        }
+        
+        if(one == true && hability == 1)
         {
             HOne();
+            hability = 0;
         }
-        else if (two == true)
+        else if (two == true && hability == 2 || one && hability == 2)
         {
             HTwo();
+            hability = 0;
         }
-        else if(three == true)
+        else if(three == true && hability == 3 || two == true && hability == 3 || one && hability == 3)
         {
             HThree();
+            hability = 0;
         }
     }
 
@@ -54,26 +94,40 @@ public class Boss : MonoBehaviour
         //shacke camera
         //animacion golpe
         StartCoroutine(GrowndHit());
+        StartCoroutine(movement());
+       
+    }
+
+    IEnumerator movement()
+    {
+        move = false;
+        yield return new WaitForSeconds(0.5f);
+        move = true;
     }
 
     IEnumerator GrowndHit()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (da == true)
+        if (doHablity == true)
         {
             Instantiate(areaGH, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z), transform.rotation);
-            da = false;
+            GameObject par1 = Instantiate(particulasGolpe, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z + 1), transform.rotation);
+            GameObject par2 = Instantiate(particulasGolpe, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z - 1), transform.rotation);
+            Destroy(par1, 1f);
+            Destroy(par2, 1f);
         }
-        
+        Debug.Log("habilideda1");
+        yield return new WaitForSeconds(0.5f);
+        doHablity = false;
+        Debug.Log("habilideda1fin");
     }
 
     void HTwo()
     {
-
+        Debug.Log("habilidad2");
     }
     void HThree()
     {
-
+        Debug.Log("habilidad3");
     }
 
     void PlusTriggers()

@@ -12,4 +12,12 @@ public class Colliders : MonoBehaviour
             triggerOn = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            triggerOn = false;
+        }
+    }
 }

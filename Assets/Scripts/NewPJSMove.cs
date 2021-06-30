@@ -17,7 +17,11 @@ public class NewPJSMove : MonoBehaviour
     private float runSpeed = 14;
     private float walkSpeed = 7;
     public float gravity = 0.5f;
+
+    [SerializeField]
     private float jumpforce = 10f;
+
+
     public static int Life = 6;
     public static int MoveSide;
     private float resettimer = 0;

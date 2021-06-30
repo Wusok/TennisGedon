@@ -24,7 +24,7 @@ public class Mov : MonoBehaviour
 
     Renderer rend;
 
-    bool freezing;
+    bool freezing = false;
 
     void Start()
     {
@@ -49,11 +49,7 @@ public class Mov : MonoBehaviour
                 {
                     //Debug.Log("piso");
 
-                    //var rotate = transform.LookAt(player.transform.position - transform.position);
-                    //rotate = Quaternion.Euler(new Vector3(0, rotate.y, rotate.z));
                     transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-
-                    //transform.rotation = Quaternion.Euler(new Vector3(0, transform.rotation.y, transform.rotation.z));
 
                     transform.position += transform.forward * speed * Time.deltaTime;
                 }
@@ -75,10 +71,10 @@ public class Mov : MonoBehaviour
                 isGround = false;
             }
 
-            if (jumping)
+            /*if (jumping)
             {
                 transform.position += transform.forward * jumpSpeed * Time.deltaTime;
-            }
+            }*/
 
             if (isGround)
                 jumping = false;
