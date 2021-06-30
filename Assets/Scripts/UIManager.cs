@@ -39,19 +39,35 @@ public class UIManager : MonoBehaviour
     public static bool dontHave;
     public static bool usingHability;
 
-    public GameObject MultiG;
+    public Image MultiG;
     public GameObject Multi;
-    public GameObject RapidG;
+    public Image RapidG;
     public GameObject Rapid;
 
     public GameObject habilitiesPanel;
 
-    public static bool HaveMulti;
-    public static bool HaveRapid;
+    public static bool HaveMulti = false;
+    public static bool HaveRapid = false;
+
+    private bool oneHM = false;
+    private bool oneHR = false;
+
+
+    public float timerRapid = 3;
+    public float timerMulti = 3;
+
+    private bool do1 = false;
+    private bool do2 = false;
 
     void Start()
     {
 
+    }
+
+    private void Awake()
+    {
+        RapidG.fillAmount = 1;
+        MultiG.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -106,16 +122,54 @@ public class UIManager : MonoBehaviour
 
     void Hability()
     {
-        if (HaveMulti)
+        if (HaveMulti && oneHM == false)
         {
+            timerMulti = 0;
             Multi.gameObject.SetActive(true);
-            MultiG.gameObject.SetActive(false);
+            MultiG.fillAmount = timerMulti / 3;
+            oneHM = true;
         }
 
-        if (HaveRapid)
+        if (Bullet.activateMulti)
         {
+            if (do1 == false)
+            {
+                timerMulti = 3;
+                do1 = true;
+            }
+            timerMulti = timerMulti - 1 * Time.deltaTime;
+            MultiG.fillAmount = timerMulti / 3;
+        }
+        else
+        {
+            timerMulti = 0;
+            MultiG.fillAmount = timerMulti / 3;
+            do1 = false;
+        }
+
+        if (HaveRapid && oneHR == false)
+        {
+            timerRapid = 0;
             Rapid.gameObject.SetActive(true);
-            RapidG.gameObject.SetActive(false);
+            RapidG.fillAmount = timerRapid / 3;
+            oneHR = true;
+        }
+
+        if (Bullet.activateRapid)
+        {
+            if (do2 == false)
+            {
+                timerRapid = 3;
+                do2 = true;
+            }
+            timerRapid = timerRapid - 1 * Time.deltaTime;
+            RapidG.fillAmount = timerRapid / 3;
+        }
+        else
+        {
+            timerRapid = 0;
+            RapidG.fillAmount = timerRapid / 3;
+            do2 = false;
         }
 
 
@@ -125,6 +179,7 @@ public class UIManager : MonoBehaviour
             ControllCamera.cameraOn = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Time.timeScale = 0.5f;
 
         }
         else if (Input.GetKeyUp("tab"))
@@ -133,6 +188,7 @@ public class UIManager : MonoBehaviour
             ControllCamera.cameraOn = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Time.timeScale = 1f;
         }
     }
 
@@ -261,7 +317,7 @@ public class UIManager : MonoBehaviour
 
     void BallsUp()
     {
-        
+
 
         while (While == false)
         {

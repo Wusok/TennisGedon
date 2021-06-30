@@ -23,8 +23,11 @@ public class Bullet : MonoBehaviour
     public AudioClip raqueteo;
     private AudioSource audiosource;
 
-    public static bool usingRapid= false;
-    public static bool usingMulti = false;
+    public static bool activateRapid = false;
+    public static bool activateMulti = false;
+
+    public static bool useRapid = false;
+    public static bool useMulti = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,7 @@ public class Bullet : MonoBehaviour
     {
         if (ControllCamera.cameraOn)
         {
-            if(usingRapid == false && usingMulti == false)
+            if(useRapid == false && useMulti == false)
             {
                 if (Input.GetButtonDown("Fire1") && CDR >= 0.5 && UsingBullet == 0)
                 {
@@ -74,7 +77,7 @@ public class Bullet : MonoBehaviour
                     CDR = 0;
                 }
             }
-            else if(usingMulti && usingRapid)
+            else if(useRapid && useMulti)
             {
                 if (Input.GetButtonDown("Fire1") && CDR >= 0.25 && UsingBullet == 0)
                 {
@@ -115,7 +118,7 @@ public class Bullet : MonoBehaviour
                     CDR = 0;
                 }
             }
-            else if (usingMulti)
+            else if (useMulti)
             {
                 if (Input.GetButtonDown("Fire1") && CDR >= 0.5 && UsingBullet == 0)
                 {
@@ -157,7 +160,7 @@ public class Bullet : MonoBehaviour
                 }
 
             }
-            else if (usingRapid)
+            else if (useRapid)
             {
                 if (Input.GetButtonDown("Fire1") && CDR >= 0.25 && UsingBullet == 0)
                 {
@@ -191,27 +194,35 @@ public class Bullet : MonoBehaviour
                 }
             }
             
-            if (Input.GetKeyDown("i") && usingMulti == false)
+            if (activateMulti == true && UIManager.HaveMulti)
             {
-                usingMulti = true;
+                useMulti = true;
                 Debug.Log("MultiOn");
             }
-            else if (Input.GetKeyDown("i") && usingMulti == true)
+            else if(activateMulti == false)
             {
-                usingMulti = false;
-                Debug.Log("MultiOff");
+                useMulti = false;
             }
-                
-            if (Input.GetKeyDown("u") && usingRapid == false)
+            /*else if (Input.GetKeyDown("i") && haveMulti == true)
             {
-                usingRapid = true;
+                haveMulti = false;
+                Debug.Log("MultiOff");
+            }*/
+                
+            if (activateRapid == true && UIManager.HaveMulti)
+            {
+                useRapid = true;
                 Debug.Log("RapidOn");
             }
-            else if (Input.GetKeyDown("u") && usingRapid == true)
+            else if (activateRapid == false)
             {
-                usingRapid = false;
-                Debug.Log("RapidOff");
+                useRapid = false;
             }
+            /*else if (Input.GetKeyDown("u") && haveRapid == true)
+            {
+                haveRapid = false;
+                Debug.Log("RapidOff");
+            }*/
 
             CDR += 1 * Time.deltaTime;
         }
