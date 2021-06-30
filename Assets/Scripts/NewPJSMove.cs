@@ -26,21 +26,20 @@ public class NewPJSMove : MonoBehaviour
     public static int MoveSide;
     private float resettimer = 0;
     public static int LastCheckpoint = 0;
-    Transform ThisCheckPoint;
     public static bool EnableCheckPoints = false;
     public static int NextLVL = 1;
-    private int ThisLVL = -1;
     public static float dash = 1.6f;
     private bool canDash = true;
     private bool isDashing = false;
     private float movementMagnitud;
     private Rigidbody rb;
     bool isGrounded;
-    bool dobleJump = false;
     bool canDJ = false;
     float jumpBoostForce = 30;
 
     public static float x;
+
+    private int jump = 2;
 
     public AudioClip hitsound;
     private AudioSource audiosource;
@@ -49,7 +48,6 @@ public class NewPJSMove : MonoBehaviour
 
     private void Awake()
     {
-        CheckPoint();
         Life = 6;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -123,21 +121,20 @@ public class NewPJSMove : MonoBehaviour
         {
             rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
         }
-        //Debug.Log(Life);
     }
 
     void PlayerSkills()
     {
-        if (isGrounded == true && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && jump > 1)
         {
             rb.AddForce(transform.up * jumpforce, ForceMode.Impulse);
+            jump--;
             Debug.Log("Saltar");
         }
-
-        if (Input.GetButtonDown("Jump") && isGrounded == false && dobleJump == true)
+        else if(Input.GetButtonDown("Jump") && jump > 0 && canDJ)
         {
             rb.AddForce(transform.up * jumpforce, ForceMode.Impulse);
-            dobleJump = false;
+            jump--;
         }
 
         if (isDashing == false)
@@ -161,22 +158,16 @@ public class NewPJSMove : MonoBehaviour
         }
     }
 
-    void CheckPoint()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (EnableCheckPoints == true)
+        if(collision.gameObject.tag == "Floor")
         {
-            ThisCheckPoint = GameObject.FindGameObjectWithTag("CheckPoint" + LastCheckpoint).transform;
-            transform.position = ThisCheckPoint.position;
+            jump = 2;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Water")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
         if (other.gameObject.tag == "EnemyBullet")
         {
             audiosource.PlayOneShot(hitsound);
@@ -187,42 +178,21 @@ public class NewPJSMove : MonoBehaviour
             }
             Debug.Log(Life);
         }
-        /*if (other.gameObject.tag == "Enemy")
-        {
-            //other.GetComponent<Enemy>().EnemyLife
-        }*/
+
         if (other.gameObject.tag == "Boots")
         {
             canDJ = true;
-            dobleJump = true;
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "JumpBoost")
         {
             rb.velocity -= 1f * rb.velocity;
             rb.AddForce(transform.up * jumpBoostForce, ForceMode.Impulse);
+            jump--;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isGrounded = true;
-            if (canDJ)
-            {
-                dobleJump = true;
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Floor")
-        {
-            isGrounded = false;
-        }
-    }
+    
 
     IEnumerator Dash()
     {
