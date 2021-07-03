@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private Rigidbody Rb;
-    private float Velocity = 1500;
+    float speed = 40;
+    GameObject player;
     void Start()
     {
-        transform.Rotate(0, +1.5f, 0);
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.LookAt(player.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Rb = GetComponent<Rigidbody>();
-        Rb.velocity = transform.forward * Velocity * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag != "Trigger" && other.gameObject.tag != "Enemy")
+        if(other.gameObject.tag != "Enemy")
         {
             Destroy(gameObject);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Sprites;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -73,6 +74,19 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("u"))
+        {
+            SceneManager.LoadScene("LVL1");
+        }
+        if (Input.GetKeyDown("o"))
+        {
+            SceneManager.LoadScene("LVL2");
+        }
+        if (Input.GetKeyDown("i"))
+        {
+            SceneManager.LoadScene("LVL3");
+        }
+
         if (NewPJSMove.Life > 4)
         {
             GreenLife.gameObject.SetActive(true);
