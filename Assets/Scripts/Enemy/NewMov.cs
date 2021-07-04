@@ -5,13 +5,8 @@ using UnityEngine;
 public class NewMov : MonoBehaviour
 {
     public GameObject player;
-    Renderer rend;
-    float life = 10f;
-    public Material dmg;
-    public Material freeze;
-    public Material normal;
-
-    bool freezing = false;
+    /*Renderer rend;
+    float life = 10f;*/
 
     public Vector3 playerlook;
     public float distanciaPlayer;
@@ -26,16 +21,16 @@ public class NewMov : MonoBehaviour
     private bool canshoot = true;
 
     public float speed = 10;
-    bool stay = false;
+    //bool stay = false;
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        movemnt();
+        //movemnt();
         if (canshoot == true)
         {
             canshoot = false;
@@ -56,7 +51,7 @@ public class NewMov : MonoBehaviour
         canshoot = true;
     }
 
-    private void movemnt()
+    /*private void movemnt()
     {
         playerlook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
         distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
@@ -73,59 +68,7 @@ public class NewMov : MonoBehaviour
         }
         else if (distanciaPlayer <= bootcolision)
             stay = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Pelota")
-        {
-            if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 0)
-            {
-                Debug.Log("1");
-                life -= 3;
-                rend.material = dmg;
-                StartCoroutine(ReturnMaterial());
-            }
-            else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 1)
-            {
-                Debug.Log("2");
-                life -= 1.5f;
-                rend.material = freeze;
-                StartCoroutine(ReturnMaterialAF());
-            }
-            else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 2)
-            {
-                Debug.Log("3");
-                life -= 2f;
-                rend.material = dmg;
-                StartCoroutine(ReturnMaterial());
-            }
-        }
-
-        if (other.gameObject.tag == "Explosion")
-        {
-            life -= 1f;
-        }
-
-        if (life <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    IEnumerator ReturnMaterialAF()
-    {
-        freezing = true;
-        yield return new WaitForSeconds(1f);
-        freezing = false;
-        rend.material = normal;
-    }
-
-    IEnumerator ReturnMaterial()
-    {
-        yield return new WaitForSeconds(0.3f);
-        rend.material = normal;
-    }
+    }*/
 
     public void OnDrawGizmosSelected()
     {
