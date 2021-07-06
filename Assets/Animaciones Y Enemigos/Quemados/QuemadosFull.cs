@@ -18,6 +18,7 @@ public class QuemadosFull : MonoBehaviour
     public bool freezing = false;
     public GameObject enemyBall;
     private float shootTimer = 0;
+    public GameObject puerta;
     void Start()
     {
         rend = skins.GetComponent<Renderer>();
@@ -36,7 +37,7 @@ public class QuemadosFull : MonoBehaviour
                 transform.LookAt(playerlook);
                 anima.SetBool("Shoot", true);
                 shootTimer += 1 * Time.deltaTime;
-                if (shootTimer >= 0.5f)
+                if (shootTimer >= 1f)
                 {
                     Instantiate(enemyBall, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
                     shootTimer = 0;
@@ -91,6 +92,7 @@ public class QuemadosFull : MonoBehaviour
 
     public void Death()
     {
+        puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
         Destroy(gameObject, 2f);
     }
 
@@ -98,7 +100,7 @@ public class QuemadosFull : MonoBehaviour
     {
         freezing = true;
         //anima.Stop();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         freezing = false;
         rend.material = normal;
     }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TriggerEnemys : MonoBehaviour
 {
-    public GameObject barrier;
-    private int amount = 1;
+    public int amount = 1;
     void Start()
     {
         
@@ -16,17 +15,7 @@ public class TriggerEnemys : MonoBehaviour
     {
         if(amount == 0)
         {
-            Destroy(barrier.gameObject);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("salio");
-        if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("enemy");
-            amount--;
+            Destroy(gameObject);
         }
     }
 }
