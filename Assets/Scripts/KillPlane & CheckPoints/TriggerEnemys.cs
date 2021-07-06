@@ -23,8 +23,9 @@ public class TriggerEnemys : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("salio");
-        if (other.gameObject.tag == "Enemey")
+        if (other.gameObject.tag == "Enemy")
         {
+            Debug.Log("enemy");
             amount--;
         }
     }
