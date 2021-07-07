@@ -14,7 +14,7 @@ public class NewPJSMove : MonoBehaviour
     public float VerticalMove;
     public float fallvelocity;
     private float speed;
-    private float runSpeed = 14;
+    private float runSpeed = 16;
     private float walkSpeed = 7;
     public float gravity = 0.5f;
 
@@ -109,20 +109,6 @@ public class NewPJSMove : MonoBehaviour
 
         x = HorizontalMove;
 
-        if (Input.GetKey("p"))
-        {
-            if (resettimer >= 1)
-            {
-                resettimer = 0;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-            resettimer += 1 * Time.deltaTime;
-        }
-        if (Input.GetKeyUp("p"))
-        {
-            resettimer = 0;
-        }
-
         if (isGrounded == false)
         {
             rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
@@ -189,6 +175,7 @@ public class NewPJSMove : MonoBehaviour
         {
             audiosource.PlayOneShot(hitsound);
             Life -= 3;
+            Destroy(other);
             if (Life <= 0)
             {
                 SceneManager.LoadScene("LoseScreen");

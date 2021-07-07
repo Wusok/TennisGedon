@@ -24,6 +24,8 @@ public class NewBoss : MonoBehaviour
     public Material normal;
     public Material freeze;
     public Material dmg;
+    private float timerspeed = 0;
+    public GameObject particulasCorrer;
 
     void Start()
     {
@@ -37,6 +39,18 @@ public class NewBoss : MonoBehaviour
         barraVida.fillAmount = life / 100;
         if (freezing == false && life > 0 && stay == false)
         {
+            timerspeed += 1 * Time.deltaTime;
+            if (timerspeed > 3)
+            {
+                speed = Random.Range(10, 16);
+                timerspeed = 0;
+            }
+
+            if (speed > 11)
+                particulasCorrer.gameObject.SetActive(true);
+            else
+                particulasCorrer.gameObject.SetActive(false);
+
             playerlook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
             distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
 
@@ -45,12 +59,13 @@ public class NewBoss : MonoBehaviour
                 Run();
                 transform.LookAt(playerlook);
                 transform.position += transform.forward * speed * Time.deltaTime;
-                doHablity = true;
+                //doHablity = true;
             }
             else if (distanciaPlayer <= dontMoveSite)
             {
                 stay = true;
             }
+            
         }
         if(stay == true && doHablity == true)
         {
@@ -61,9 +76,9 @@ public class NewBoss : MonoBehaviour
     public void HammerHit()
     {
         Manos();
+        doHablity = false;
         StartCoroutine(Hiting());
         StartCoroutine(WaitAnimation());
-        doHablity = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -79,7 +94,15 @@ public class NewBoss : MonoBehaviour
         GameObject area = Instantiate(areaGH, new Vector3(transform.position.x, transform.position.y - 4, transform.position.z - 3), transform.rotation);
         GameObject par1 = Instantiate(particulasGolpe, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z + 1), transform.rotation);
         GameObject par2 = Instantiate(particulasGolpe, new Vector3(transform.position.x + 0.5f, transform.position.y - 4, transform.position.z - 1), transform.rotation);
+        GameObject par3 = Instantiate(particulasGolpe, new Vector3(transform.position.x - 0.5f, transform.position.y - 4, transform.position.z + 1), transform.rotation);
+        GameObject par4 = Instantiate(particulasGolpe, new Vector3(transform.position.x - 0.5f, transform.position.y - 4, transform.position.z - 1), transform.rotation);
+        GameObject par5 = Instantiate(particulasGolpe, new Vector3(transform.position.x + 1f, transform.position.y - 4, transform.position.z), transform.rotation);
+        GameObject par6 = Instantiate(particulasGolpe, new Vector3(transform.position.x - 1f, transform.position.y - 4, transform.position.z), transform.rotation);
         Destroy(par1, 1f);
+        Destroy(par6, 1f);
+        Destroy(par3, 1f);
+        Destroy(par4, 1f);
+        Destroy(par5, 1f);
         Destroy(area, 1f);
         Destroy(par2, 1f);
     }
@@ -87,7 +110,9 @@ public class NewBoss : MonoBehaviour
     IEnumerator WaitAnimation()
     {
         yield return new WaitForSeconds(3);
+        Idle();
         stay = false;
+        doHablity = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -133,6 +158,7 @@ public class NewBoss : MonoBehaviour
     IEnumerator ReturnMaterialAF()
     {
         Idle();
+        particulasCorrer.gameObject.SetActive(false);
         freezing = true;
         yield return new WaitForSeconds(2f);
         freezing = false;
