@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllCamera : MonoBehaviour
 {
-    public float mouseSensitivity = 80f;
+    public static float mouseSensitivity = 80f;
     public Transform playerbody;
     float xRotation = 0;
     public static bool cameraOn;
@@ -17,7 +17,6 @@ public class ControllCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mouseSensitivity = LVLManager.Sensibilidad;
         if (cameraOn)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
