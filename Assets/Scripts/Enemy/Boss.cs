@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     GameObject player;
-    float speed = 4;
+    public float speed = 4;
 
     public Animator anima;
 
@@ -139,7 +139,7 @@ public class Boss : MonoBehaviour
     IEnumerator movement()
     {
         move = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         move = true;
     }
 

@@ -20,7 +20,8 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag != "Enemy" && other.gameObject.tag != "Trigger")
+        if(other.gameObject.tag != "Enemy" && other.gameObject.tag != "Trigger" && other.gameObject.tag != "JumpBoost" +
+            "")
         {
             Destroy(gameObject);
         }

@@ -14,6 +14,12 @@ public class Brillo : MonoBehaviour
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
     }
 
+    private void Awake()
+    {
+        slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
+        panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
+    }
+
     public void ChangeSlider(float valor)
     {
         sliderValue = valor;

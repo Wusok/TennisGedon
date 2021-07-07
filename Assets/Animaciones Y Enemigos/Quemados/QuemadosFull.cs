@@ -19,6 +19,7 @@ public class QuemadosFull : MonoBehaviour
     public GameObject enemyBall;
     private float shootTimer = 0;
     public GameObject puerta;
+    private bool isDeath = false;
     void Start()
     {
         rend = skins.GetComponent<Renderer>();
@@ -27,7 +28,7 @@ public class QuemadosFull : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(freezing == false && life > 0)
+        if (freezing == false && life > 0)
         {
             playerlook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
             distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
@@ -55,6 +56,11 @@ public class QuemadosFull : MonoBehaviour
     {
         if (other.gameObject.tag == "Pelota")
         {
+            if (distanciaPlayer > lineofsite)
+            {
+                lineofsite = lineofsite * 2;
+            }
+
             if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 0)
             {
                 Debug.Log("1");
@@ -83,8 +89,9 @@ public class QuemadosFull : MonoBehaviour
             life -= 1f;
         }
 
-        if (life <= 0)
+        if (life <= 0 && isDeath == false)
         {
+            isDeath = true;
             anima.SetBool("Death", true);
             Death();
         }

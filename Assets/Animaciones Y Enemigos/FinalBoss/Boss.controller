@@ -61,7 +61,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: patada
+    m_ConditionEvent: takle
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -627926985860053526}
@@ -166,7 +166,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1102 &-1850520915585711771
 AnimatorState:
   serializedVersion: 5
@@ -280,8 +280,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Patada
-  m_Speed: 1
+  m_Name: Takle
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1395906420542952514}
@@ -296,7 +296,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: e4d075bdc0c1a5c4483a0281781c73c3,
+  m_Motion: {fileID: -203655887218126122, guid: 57f5de44ee06b4d4daf93090fd057318,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -324,7 +324,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: 2manos
+  - m_Name: manos
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -336,7 +336,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: patada
+  - m_Name: takle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -364,7 +364,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: 2manos
+    m_ConditionEvent: manos
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7205216520632377168}
@@ -374,7 +374,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.53125
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -389,7 +389,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: 2manos
+    m_ConditionEvent: manos
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7205216520632377168}
@@ -620,7 +620,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: patada
+    m_ConditionEvent: takle
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -627926985860053526}
@@ -701,7 +701,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: 2manos
+    m_ConditionEvent: manos
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7205216520632377168}
@@ -752,7 +752,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: patada
+    m_ConditionEvent: takle
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -627926985860053526}

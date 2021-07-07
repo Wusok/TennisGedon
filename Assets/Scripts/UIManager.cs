@@ -67,6 +67,12 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        if (SceneManager.GetActiveScene().name == "LVL1")
+        {
+            HaveMulti = false;
+            HaveRapid = false;
+        }
+
         RapidG.fillAmount = 1;
         MultiG.fillAmount = 1;
     }
@@ -74,19 +80,6 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("u"))
-        {
-            SceneManager.LoadScene("LVL1");
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            SceneManager.LoadScene("LVL2");
-        }
-        if (Input.GetKeyDown("i"))
-        {
-            SceneManager.LoadScene("LVL3");
-        }
-
         if (NewPJSMove.Life > 4)
         {
             GreenLife.gameObject.SetActive(true);

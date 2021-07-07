@@ -34,8 +34,10 @@ public class NewPJSMove : MonoBehaviour
     private float movementMagnitud;
     private Rigidbody rb;
     bool isGrounded;
-    bool canDJ = false;
+    public static bool canDJ = false;
     float jumpBoostForce = 30;
+
+    public int numberRespawn = 0;
 
     public static float x;
 
@@ -48,6 +50,10 @@ public class NewPJSMove : MonoBehaviour
 
     private void Awake()
     {
+        if(SceneManager.GetActiveScene().name == "LVL1")
+        {
+            canDJ = false;
+        }
         Life = 6;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -174,7 +180,18 @@ public class NewPJSMove : MonoBehaviour
             Life--;
             if (Life <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                SceneManager.LoadScene("LoseScreen");
+            }
+            Debug.Log(Life);
+        }
+
+        if(other.gameObject.tag == "PunchZone")
+        {
+            audiosource.PlayOneShot(hitsound);
+            Life -= 3;
+            if (Life <= 0)
+            {
+                SceneManager.LoadScene("LoseScreen");
             }
             Debug.Log(Life);
         }

@@ -44,6 +44,7 @@ public class BulletBeheivor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.gameObject.tag != "Player" && other.gameObject.tag != "Trigger")
         {
             if(WhatIsThisBall == 0)

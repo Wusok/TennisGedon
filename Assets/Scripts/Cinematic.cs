@@ -13,7 +13,7 @@ public class Cinematic : MonoBehaviour
     {
         Timer += 1 * Time.deltaTime;
         Debug.Log(Timer);
-        if (Timer > 2 && ThisImage != 23)
+        if (Timer > 1.5f && ThisImage != 17)
         {
             if(ThisImage != 0)
             {
@@ -23,9 +23,9 @@ public class Cinematic : MonoBehaviour
             ThisImage++;
             Timer = 0;
         }
-        if(Timer >= 2 && ThisImage == 23)
+        if(Timer >= 1.5f && ThisImage == 17)
         {
-            if (ThisImage == 23)
+            if (ThisImage == 17)
             {
                 SceneManager.LoadScene("LVL1");
             }

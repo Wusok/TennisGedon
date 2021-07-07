@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bullet : MonoBehaviour
 {
@@ -37,6 +38,11 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        if (SceneManager.GetActiveScene().name == "LVL1")
+        {
+            HaveIceBullet = false;
+            HaveExplosiveBullet = false;
+        }
         CDR = 5;
     }
 

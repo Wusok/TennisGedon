@@ -56,9 +56,4 @@ public class MenuManager : MonoBehaviour
         Cross.SetActive(true);
         Option.SetActive(false);
     }
-
-    public void SensibilidadInicial (float SensibilidadIni)
-    {
-        SensibilidadIni = LVLManager.Sensibilidad;
-    }
 }
