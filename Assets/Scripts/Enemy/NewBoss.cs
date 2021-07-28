@@ -15,7 +15,7 @@ public class NewBoss : MonoBehaviour
     public Animator anima;
     public int speed;
     public bool stay = false;
-    public bool doHablity = true;
+    public bool doHability = true;
     public GameObject areaGH;
     public GameObject particulasGolpe;
     public Image barraVida;
@@ -26,6 +26,7 @@ public class NewBoss : MonoBehaviour
     public Material dmg;
     private float timerspeed = 0;
     public GameObject particulasCorrer;
+    private int habilityToDo;
 
     void Start()
     {
@@ -39,12 +40,12 @@ public class NewBoss : MonoBehaviour
         barraVida.fillAmount = life / 100;
         if (freezing == false && life > 0 && stay == false)
         {
-            timerspeed += 1 * Time.deltaTime;
+            /*timerspeed += 1 * Time.deltaTime;
             if (timerspeed > 3)
             {
                 speed = Random.Range(10, 16);
                 timerspeed = 0;
-            }
+            }*/
 
             if (speed > 11)
                 particulasCorrer.gameObject.SetActive(true);
@@ -65,18 +66,50 @@ public class NewBoss : MonoBehaviour
             {
                 stay = true;
             }
-            
+
+            if(doHability == true)
+            {
+                doHability = false;
+                habilityToDo = Random.Range(0, 3);
+            }
+            WhatImDoing();
         }
+        /*
         if(stay == true && doHablity == true)
         {
             HammerHit();
+        }*/
+    }
+
+    public void WhatImDoing()
+    {
+        if (habilityToDo == 0)
+        {
+
+        }
+        else if (habilityToDo == 1 && distanciaPlayer <= dontMoveSite)
+        {
+            HammerHit();
+            speed = 10;
+        }
+        else if (habilityToDo == 1 && distanciaPlayer >= dontMoveSite)
+        {
+            speed = 15;
+        }
+        else if (habilityToDo == 2)
+        {
+
+        }
+        else if (habilityToDo == 3)
+        {
+
         }
     }
 
     public void HammerHit()
     {
         Manos();
-        doHablity = false;
+        doHability = false;
         StartCoroutine(Hiting());
         StartCoroutine(WaitAnimation());
     }
@@ -112,7 +145,7 @@ public class NewBoss : MonoBehaviour
         yield return new WaitForSeconds(3);
         Idle();
         stay = false;
-        doHablity = true;
+        doHability = true;
     }
 
     private void OnTriggerEnter(Collider other)
