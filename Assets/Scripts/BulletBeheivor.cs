@@ -6,7 +6,7 @@ public class BulletBeheivor : MonoBehaviour
 {
     //[SerializeField] public un private
 
-    private float Velocity = 50f;
+    private float Velocity = 150f;
     public float FallVelocity = 0.01f;
     private float AngularVelocity = 2500;
     private float Sidex;
@@ -21,12 +21,12 @@ public class BulletBeheivor : MonoBehaviour
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        Sidex = NewPJSMove.x;
+        /*Sidex = NewPJSMove.x;
 
         if (Sidex > 0)
             Rb.AddForce(transform.right * (1) * AngularVelocity);
         else if (Sidex < 0)
-            Rb.AddForce(transform.right * (-1) * AngularVelocity);
+            Rb.AddForce(transform.right * (-1) * AngularVelocity);*/
 
         WhatIsThisBall = Bullet.UsingBullet;
     }
