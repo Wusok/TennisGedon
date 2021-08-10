@@ -22,9 +22,8 @@ public class NewPJSMove : MonoBehaviour
     private float jumpforce = 10f;
 
 
-    public static int Life = 6;
+    public static int Life = 10;
     public static int MoveSide;
-    private float resettimer = 0;
     public static int LastCheckpoint = 0;
     public static bool EnableCheckPoints = false;
     public static int NextLVL = 1;
@@ -44,6 +43,7 @@ public class NewPJSMove : MonoBehaviour
     private int jump = 2;
 
     public AudioClip hitsound;
+    public AudioClip heal;
     private AudioSource audiosource;
 
     private Vector3 playerInput;
@@ -160,6 +160,10 @@ public class NewPJSMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Botiquin")
+        {
+            audiosource.PlayOneShot(heal);
+        }
         if (other.gameObject.tag == "EnemyBullet")
         {
             audiosource.PlayOneShot(hitsound);

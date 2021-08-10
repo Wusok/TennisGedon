@@ -28,6 +28,7 @@ TagManager:
   - Boots
   - JumpBoost
   - Wall
+  - Botiquin
   layers:
   - Default
   - TransparentFX

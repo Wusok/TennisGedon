@@ -80,13 +80,13 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NewPJSMove.Life > 4)
+        if (NewPJSMove.Life > 6)
         {
             GreenLife.gameObject.SetActive(true);
             YellowLife.gameObject.SetActive(false);
             RedLife.gameObject.SetActive(false);
         }
-        if (NewPJSMove.Life <= 4 && NewPJSMove.Life > 2)
+        if (NewPJSMove.Life <= 6 && NewPJSMove.Life > 2)
         {
             GreenLife.gameObject.SetActive(false);
             YellowLife.gameObject.SetActive(true);

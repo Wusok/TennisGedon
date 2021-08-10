@@ -77,6 +77,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InicioDisp: {fileID: 9042780019481810477}
+  mycamera: {fileID: 0}
+  gameToPoint: {fileID: 0}
+  aimObject: {fileID: 0}
   YourBullets:
   - {fileID: 4636852036664906123, guid: 0750b7e5954611c43a53e3072dff2d9e, type: 3}
   - {fileID: 4636852036664906123, guid: 842f982e95d9bf84fbd4676ddea3337e, type: 3}
@@ -276,7 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1cf408b96229b45afd2f5442fa5a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 80
   playerbody: {fileID: 9042780019950035869}
 --- !u!1 &9042780019950035870
 GameObject:
@@ -361,7 +363,9 @@ MonoBehaviour:
   fallvelocity: 0
   gravity: 20
   jumpforce: 10
+  numberRespawn: 0
   hitsound: {fileID: 8300000, guid: 49a52b087d8f0834599762fa513a8fdd, type: 3}
+  heal: {fileID: 8300000, guid: f54533ab01566ef43b0f8520441cebc9, type: 3}
 --- !u!82 &3551746552566612047
 AudioSource:
   m_ObjectHideFlags: 0
