@@ -6070,6 +6070,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &279765502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4764405721201901999, guid: 452246675d63b114ebc6d85e8e79a9d6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901100785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &288107936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6853,6 +6865,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2727306681499188310, guid: 897492f4bc20e9e418e294d9d916950c,
+        type: 3}
+      propertyPath: wush
+      value: 
+      objectReference: {fileID: 279765502}
     - target: {fileID: 9042780019481810474, guid: 897492f4bc20e9e418e294d9d916950c,
         type: 3}
       propertyPath: mycamera
@@ -10507,6 +10524,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500600600}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1507436180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 660fc5a781cc67d4c88a539ec3c0bde4,
+    type: 3}
+  m_PrefabInstance: {fileID: 621815471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1507436181
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507436180}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.015663968
+  m_Height: 0.048681885
+  m_Direction: 1
+  m_Center: {x: 0.00011299751, y: 0.019601602, z: 0.00052177085}
 --- !u!1001 &1527259990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11909,6 +11946,11 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1321902029845769120, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1361662233564014026, guid: 452246675d63b114ebc6d85e8e79a9d6,
         type: 3}
       propertyPath: m_RaycastTarget
@@ -11978,6 +12020,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221850569981606561, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221850569981606561, guid: 452246675d63b114ebc6d85e8e79a9d6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6599583280823794453, guid: 452246675d63b114ebc6d85e8e79a9d6,
         type: 3}
