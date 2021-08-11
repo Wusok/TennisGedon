@@ -169,7 +169,12 @@ public class NewPJSMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Botiquin")
+        if (other.gameObject.tag == "Rayo")
+        {
+            StartCoroutine(MoreSpeed());
+        }
+
+        if (other.gameObject.tag == "Botiquin")
         {
             audiosource.PlayOneShot(heal);
         }
@@ -209,7 +214,14 @@ public class NewPJSMove : MonoBehaviour
         }
     }
 
-    
+    IEnumerator MoreSpeed()
+    {
+        walkSpeed = walkSpeed + 5f;
+        runSpeed = runSpeed + 10f;
+        yield return new WaitForSeconds(7);
+        walkSpeed = walkSpeed - 5f;
+        runSpeed = runSpeed - 10f;
+    }
 
     IEnumerator Dash()
     {
