@@ -366,6 +366,8 @@ MonoBehaviour:
   numberRespawn: 0
   hitsound: {fileID: 8300000, guid: 49a52b087d8f0834599762fa513a8fdd, type: 3}
   heal: {fileID: 8300000, guid: f54533ab01566ef43b0f8520441cebc9, type: 3}
+  fium: {fileID: 8300000, guid: 06a4c641d6c2f554d8a226906b17282a, type: 3}
+  wush: {fileID: 0}
 --- !u!82 &3551746552566612047
 AudioSource:
   m_ObjectHideFlags: 0

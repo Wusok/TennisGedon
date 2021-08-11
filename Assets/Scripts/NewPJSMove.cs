@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewPJSMove : MonoBehaviour
 {
@@ -44,9 +45,12 @@ public class NewPJSMove : MonoBehaviour
 
     public AudioClip hitsound;
     public AudioClip heal;
+    public AudioClip fium;
     private AudioSource audiosource;
 
     private Vector3 playerInput;
+
+    public Image wush;
 
     private void Awake()
     {
@@ -114,10 +118,10 @@ public class NewPJSMove : MonoBehaviour
             rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
         }
 
-        if (Input.GetKeyDown("u"))
+        /*if (Input.GetKeyDown("u"))
         {
             Life = 10;
-        }
+        }*/
     }
 
     void PlayerSkills()
@@ -211,9 +215,12 @@ public class NewPJSMove : MonoBehaviour
     {
         Debug.Log("Corutine");
         //speed = speed * 15;
+        wush.gameObject.SetActive(true);
+        audiosource.PlayOneShot(fium);
         rb.AddForce(playerInput * 2000, ForceMode.Force);
         yield return new WaitForSeconds(0.1f);
         rb.velocity -= 1f * rb.velocity;
+        wush.gameObject.SetActive(false);
         Debug.Log("termino cr");
         //speed = speed / 15;
         isDashing = false;
