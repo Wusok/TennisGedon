@@ -54,7 +54,7 @@ public class NewPJSMove : MonoBehaviour
         {
             canDJ = false;
         }
-        Life = 6;
+        Life = 10;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -112,6 +112,11 @@ public class NewPJSMove : MonoBehaviour
         if (isGrounded == false)
         {
             rb.AddForce(transform.up * -1 * gravity, ForceMode.Acceleration);
+        }
+
+        if (Input.GetKeyDown("u"))
+        {
+            Life = 10;
         }
     }
 

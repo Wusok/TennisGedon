@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public static int EnemyLife = 3;
     private Transform Player;
-    private float ThisEnemy;
+    public float ThisEnemy;
     public Material Normal;
     public Material Freeze;
     private Renderer Rend;

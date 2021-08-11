@@ -250,8 +250,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.679657, y: 1.7348704, z: 0.31215477}
-  m_Center: {x: 0.0039806366, y: 0.873368, z: 0.014237404}
+  m_Size: {x: 1.1625061, y: 1.7983184, z: 0.4650669}
+  m_Center: {x: 0.00031089783, y: 0.905092, z: 0.024928093}
 --- !u!114 &7953592323971642510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,10 +274,12 @@ MonoBehaviour:
   playerlook: {x: 0, y: 0, z: 0}
   distanciaPlayer: 0
   lineofsite: 50
-  life: 10
+  life: 5
   freezing: 0
   enemyBall: {fileID: 4636852036664906123, guid: 6ffd43cb0ea8eab41a0cae4b35be3679,
     type: 3}
+  puerta: {fileID: 0}
+  printVida: 0
 --- !u!1 &2123603105268350109
 GameObject:
   m_ObjectHideFlags: 0

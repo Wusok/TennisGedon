@@ -99,8 +99,10 @@ public class Bullet : MonoBehaviour
             if (CDR >= 0.5 && UsingBullet == 0)
             {
                 Debug.Log("Spawn");
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                OneBullet.GetComponent<BulletBeheivor>().pointtoview = aimObject.transform;
                 audiosource.PlayOneShot(raqueteo);
+                Destroy(aimObject.gameObject);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }

@@ -14,12 +14,14 @@ public class QuemadosFull : MonoBehaviour
     public Vector3 playerlook;
     public float distanciaPlayer;
     public float lineofsite;
-    public float life = 10;
+    public float life = 4;
     public bool freezing = false;
     public GameObject enemyBall;
     private float shootTimer = 0;
     public GameObject puerta;
     private bool isDeath = false;
+
+    public bool printVida = false;
     void Start()
     {
         rend = skins.GetComponent<Renderer>();
@@ -48,6 +50,11 @@ public class QuemadosFull : MonoBehaviour
             {
                 anima.SetBool("Shoot", false);
             }
+        }
+
+        if(printVida == true)
+        {
+            Debug.Log(life);
         }
     }
 
