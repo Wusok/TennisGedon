@@ -126,68 +126,28 @@ public class Bullet : MonoBehaviour
         }
         else if (useRapid && useMulti)
         {
-            if (CDR >= 0.25 && UsingBullet == 0)
-            {
-                Debug.Log("Spawn");
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                audiosource.PlayOneShot(raqueteo);
-                Destroy(OneBullet, 4f);
-                CDR = 0;
-            }
-            else if (CDR >= 0.75 && UsingBullet == 1)
-            {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                audiosource.PlayOneShot(raqueteo);
-                Destroy(OneBullet, 4f);
-                CDR = 0;
-            }
-            else if (CDR >= 0.5 && UsingBullet == 2)
-            {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
-                audiosource.PlayOneShot(raqueteo);
-                Destroy(OneBullet, 4f);
-                CDR = 0;
-            }
-            else if (CDR >= 0.5 && UsingBullet == 3)
-            {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
-                audiosource.PlayOneShot(raqueteo);
-                Destroy(OneBullet, 4f);
-                CDR = 0;
-            }
-        }
-        else if (useMulti)
-        {
             if (CDR >= 0.5 && UsingBullet == 0)
             {
                 Debug.Log("Spawn");
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1.5 && UsingBullet == 1)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1 && UsingBullet == 2)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);
@@ -203,11 +163,51 @@ public class Bullet : MonoBehaviour
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
+        }
+        else if (useMulti)
+        {
+            if (CDR >= 1 && UsingBullet == 0)
+            {
+                Debug.Log("Spawn");
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                audiosource.PlayOneShot(raqueteo);
+                Destroy(OneBullet, 4f);
+                CDR = 0;
+            }
+            else if (CDR >= 3 && UsingBullet == 1)
+            {
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                audiosource.PlayOneShot(raqueteo);
+                Destroy(OneBullet, 4f);
+                CDR = 0;
+            }
+            else if (CDR >= 2 && UsingBullet == 2)
+            {
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                audiosource.PlayOneShot(raqueteo);
+                Destroy(OneBullet, 4f);
+                CDR = 0;
+            }
+            else if (CDR >= 2 && UsingBullet == 3)
+            {
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                audiosource.PlayOneShot(raqueteo);
+                Destroy(OneBullet, 4f);
+                CDR = 0;
+            }
 
         }
         else if (useRapid)
         {
-            if (CDR >= 0.25 && UsingBullet == 0)
+            if (CDR >= 0.1 && UsingBullet == 0)
             {
                 Debug.Log("Spawn");
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
@@ -215,21 +215,21 @@ public class Bullet : MonoBehaviour
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
-            else if (CDR >= 0.75 && UsingBullet == 1)
+            else if (CDR >= 0.5 && UsingBullet == 1)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
-            else if (CDR >= 0.5 && UsingBullet == 2)
+            else if (CDR >= 0.25 && UsingBullet == 2)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
-            else if (CDR >= 0.5 && UsingBullet == 3)
+            else if (CDR >= 0.25 && UsingBullet == 3)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 audiosource.PlayOneShot(raqueteo);

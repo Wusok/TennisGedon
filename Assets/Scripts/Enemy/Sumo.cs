@@ -111,16 +111,21 @@ public class Sumo : MonoBehaviour
         {
             isDeath = true;
             anima.SetBool("Death", true);
+            if (puerta != null)
+            {
+                puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
+            }
+            
             Destroy(gameObject, 3f);
             //Death();
         }
     }
 
-    public void Death()
+    /*public void Death()
     {
-        //puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
+        puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
         Destroy(gameObject, 1f);
-    }
+    }*/
 
     IEnumerator ReturnMaterialAF()
     {
