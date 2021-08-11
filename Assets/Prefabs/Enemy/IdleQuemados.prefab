@@ -414,8 +414,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3105903585685175019}
   - component: {fileID: 5012613155289094033}
-  - component: {fileID: 7953592323971642511}
   - component: {fileID: 7953592323971642510}
+  - component: {fileID: 2368284459215987056}
   m_Layer: 0
   m_Name: IdleQuemados
   m_TagString: Enemy
@@ -459,19 +459,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &7953592323971642511
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108030980713777400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0518799, y: 1.7983184, z: 0.68418884}
-  m_Center: {x: 0.018463135, y: 0.905092, z: 0.053398132}
 --- !u!114 &7953592323971642510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,6 +487,20 @@ MonoBehaviour:
     type: 3}
   puerta: {fileID: 0}
   printVida: 1
+--- !u!136 &2368284459215987056
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108030980713777400}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8742814
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.832494, z: 0}
 --- !u!1 &2123603105268350109
 GameObject:
   m_ObjectHideFlags: 0
