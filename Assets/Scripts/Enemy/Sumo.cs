@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Sumo : MonoBehaviour
 {
-    public List<GameObject> allys;
-    private float timerHeal = 0;
-    private float life = 3;
+    private float life = 20;
 
     private AudioSource audiosource;
     public AudioClip normalhit;
@@ -23,11 +21,16 @@ public class Sumo : MonoBehaviour
     public Vector3 playerlook;
     public float distanciaPlayer;
     public float lineofsite;
+    public float hitZone;
     public bool freezing = false;
     public GameObject puerta;
     private bool isDeath = false;
 
     public bool printVida = false;
+    private float speed = 3;
+
+    private bool isAtacking = false;
+    private bool moveAtack = false;
     void Start()
     {
         rend = skins.GetComponent<Renderer>();
@@ -41,16 +44,34 @@ public class Sumo : MonoBehaviour
             playerlook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
             distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-            if (distanciaPlayer < lineofsite)
+            if (distanciaPlayer < lineofsite && distanciaPlayer > hitZone && isAtacking == false)
             {
                 transform.LookAt(playerlook);
+                transform.position += transform.forward * speed * Time.deltaTime;
                 anima.SetBool("Idle", false);
+            }
+            else if(distanciaPlayer < hitZone)
+            {
+                if(isAtacking == false)
+                {
+                    isAtacking = true;
+                    StartCoroutine(Atack());
+                }
+            }
+            if (isAtacking == true && moveAtack == true)
+            {
+                transform.position += transform.forward * speed * 2.5f * Time.deltaTime;
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Player" && moveAtack == true)
+        {
+            NewPJSMove.Life -= 2;
+        }
+        
         if (other.gameObject.tag == "Pelota")
         {
             if (distanciaPlayer > lineofsite)
@@ -90,14 +111,15 @@ public class Sumo : MonoBehaviour
         {
             isDeath = true;
             anima.SetBool("Death", true);
-            Death();
+            Destroy(gameObject, 3f);
+            //Death();
         }
     }
 
     public void Death()
     {
-        puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
-        Destroy(gameObject, 2f);
+        //puerta.gameObject.GetComponent<TriggerEnemys>().amount--;
+        Destroy(gameObject, 1f);
     }
 
     IEnumerator ReturnMaterialAF()
@@ -113,5 +135,17 @@ public class Sumo : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         rend.material = normal;
+    }
+
+    IEnumerator Atack()
+    {
+        anima.SetBool("Atack", true);
+        yield return new WaitForSeconds(0.5f);
+        moveAtack = true;
+        yield return new WaitForSeconds(1.5f);
+        moveAtack = false;
+        isAtacking = false;
+        anima.SetBool("Atack", false);
+        anima.SetBool("Idle", true);
     }
 }
