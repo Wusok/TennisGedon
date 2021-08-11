@@ -8,8 +8,6 @@ public class BulletBeheivor : MonoBehaviour
 
     private float Velocity = 150f;
     public float FallVelocity = 0.01f;
-    private float AngularVelocity = 2500;
-    private float Sidex;
     Rigidbody Rb;
     public float DownTime = 0;
     public GameObject Ice;
@@ -18,8 +16,11 @@ public class BulletBeheivor : MonoBehaviour
     public GameObject particulasIceHit;
     public GameObject particulasExplosiveHit;
     public GameObject explosion;
+
+    public Transform pointtoview;
     void Start()
     {
+        transform.LookAt(pointtoview);
         Rb = GetComponent<Rigidbody>();
         /*Sidex = NewPJSMove.x;
 
@@ -63,7 +64,7 @@ public class BulletBeheivor : MonoBehaviour
                 GameObject explosionWait = Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(explosive, 1f);
             }
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 }
