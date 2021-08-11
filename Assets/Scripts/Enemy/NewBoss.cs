@@ -66,43 +66,12 @@ public class NewBoss : MonoBehaviour
             {
                 stay = true;
             }
-
-            if(doHability == true)
-            {
-                doHability = false;
-                habilityToDo = Random.Range(0, 3);
-            }
-            WhatImDoing();
+            
         }
-        /*
-        if(stay == true && doHablity == true)
+        
+        if(stay == true && doHability == true)
         {
             HammerHit();
-        }*/
-    }
-
-    public void WhatImDoing()
-    {
-        if (habilityToDo == 0)
-        {
-
-        }
-        else if (habilityToDo == 1 && distanciaPlayer <= dontMoveSite)
-        {
-            HammerHit();
-            speed = 10;
-        }
-        else if (habilityToDo == 1 && distanciaPlayer >= dontMoveSite)
-        {
-            speed = 15;
-        }
-        else if (habilityToDo == 2)
-        {
-
-        }
-        else if (habilityToDo == 3)
-        {
-
         }
     }
 
