@@ -65,11 +65,11 @@ public class Bullet : MonoBehaviour
                 useMulti = true;
                 Debug.Log("MultiOn");
             }
-            else if(activateMulti == false)
+            else if (activateMulti == false)
             {
                 useMulti = false;
             }
-                
+
             if (activateRapid == true && UIManager.HaveMulti)
             {
                 useRapid = true;
@@ -82,27 +82,23 @@ public class Bullet : MonoBehaviour
 
             CDR += 1 * Time.deltaTime;
         }
-        
+
     }
 
     void Shoot()
     {
-        RaycastHit hit;
-        
-        if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
-        {
-            aimObject = Instantiate(gameToPoint, hit.point, Quaternion.identity);
-        }
-
         if (useRapid == false && useMulti == false)
         {
             if (CDR >= 0.5 && UsingBullet == 0)
             {
                 Debug.Log("Spawn");
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
-                OneBullet.GetComponent<BulletBeheivor>().pointtoview = aimObject.transform;
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
-                Destroy(aimObject.gameObject);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }

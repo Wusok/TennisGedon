@@ -17,10 +17,12 @@ public class BulletBeheivor : MonoBehaviour
     public GameObject particulasExplosiveHit;
     public GameObject explosion;
 
-    public Transform pointtoview;
+    public GameObject pointtoview;
+
+    private bool mirando = false;
     void Start()
     {
-        transform.LookAt(pointtoview);
+
         Rb = GetComponent<Rigidbody>();
         /*Sidex = NewPJSMove.x;
 
@@ -35,9 +37,14 @@ public class BulletBeheivor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mirando == false)
+        {
+            transform.LookAt(pointtoview.transform);
+            mirando = true;
+        }
         if (DownTime >= 1f)
         {
-            Rb.AddForce(-transform.up * FallVelocity* Time.deltaTime);
+            Rb.AddForce(-transform.up * FallVelocity * Time.deltaTime);
         }
         DownTime = DownTime + 1 * Time.deltaTime;
         transform.position += transform.forward * Time.deltaTime * Velocity;
@@ -45,7 +52,7 @@ public class BulletBeheivor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         if (other.gameObject.tag != "Player" && other.gameObject.tag != "Trigger")
         {
             if(WhatIsThisBall == 0)
