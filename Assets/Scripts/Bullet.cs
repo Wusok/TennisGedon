@@ -104,21 +104,36 @@ public class Bullet : MonoBehaviour
             }
             else if (CDR >= 1.5 && UsingBullet == 1)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1 && UsingBullet == 2)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1 && UsingBullet == 3)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -129,27 +144,42 @@ public class Bullet : MonoBehaviour
             if (CDR >= 0.5 && UsingBullet == 0)
             {
                 Debug.Log("Spawn");
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1.5 && UsingBullet == 1)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
-                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
+                GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
             }
             else if (CDR >= 1 && UsingBullet == 2)
             {
-                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, Quaternion.LookRotation(aimObject.transform.position - mycamera.transform.position));
+                GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -159,6 +189,11 @@ public class Bullet : MonoBehaviour
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -172,6 +207,11 @@ public class Bullet : MonoBehaviour
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -181,6 +221,11 @@ public class Bullet : MonoBehaviour
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -190,6 +235,11 @@ public class Bullet : MonoBehaviour
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -199,6 +249,11 @@ public class Bullet : MonoBehaviour
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
                 GameObject TwoBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(1, 0, 0), InicioDisp.rotation);
                 GameObject ThreeBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position + new Vector3(-1, 0, 0), InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -211,6 +266,11 @@ public class Bullet : MonoBehaviour
             {
                 Debug.Log("Spawn");
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -218,6 +278,11 @@ public class Bullet : MonoBehaviour
             else if (CDR >= 0.5 && UsingBullet == 1)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -225,6 +290,11 @@ public class Bullet : MonoBehaviour
             else if (CDR >= 0.25 && UsingBullet == 2)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;
@@ -232,6 +302,11 @@ public class Bullet : MonoBehaviour
             else if (CDR >= 0.25 && UsingBullet == 3)
             {
                 GameObject OneBullet = Instantiate(YourBullets[UsingBullet], InicioDisp.position, InicioDisp.rotation);
+                RaycastHit hit;
+                if (Physics.Raycast(mycamera.transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+                    OneBullet.GetComponent<BulletBeheivor>().pointtoview = Instantiate(gameToPoint, hit.point, Quaternion.identity);
+                }
                 audiosource.PlayOneShot(raqueteo);
                 Destroy(OneBullet, 4f);
                 CDR = 0;

@@ -71,7 +71,7 @@ public class BulletBeheivor : MonoBehaviour
                 GameObject explosionWait = Instantiate(explosion, transform.position, transform.rotation);
                 Destroy(explosive, 1f);
             }
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
         }
     }
 }

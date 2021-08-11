@@ -96,7 +96,7 @@ public class Sumo : MonoBehaviour
             else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 2)
             {
                 Debug.Log("3");
-                life -= 2f;
+                life -= 5f;
                 rend.material = dmg;
                 StartCoroutine(ReturnMaterial());
             }

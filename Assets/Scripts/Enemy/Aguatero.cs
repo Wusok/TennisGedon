@@ -26,7 +26,7 @@ public class Aguatero : MonoBehaviour
     public bool freezing = false;
     public GameObject puerta;
     private bool isDeath = false;
-
+    public GameObject particulavida;
     public bool printVida = false;
     void Start()
     {
@@ -51,6 +51,8 @@ public class Aguatero : MonoBehaviour
                         if (allys[i].GetComponent<QuemadosFull>().life < 5)
                         {
                             allys[i].GetComponent<QuemadosFull>().life++;
+                            GameObject vidavida = Instantiate(particulavida, allys[i].transform.position, allys[i].transform.rotation);
+                            Destroy(vidavida, 2f);
                         }
                     }
                     timerHeal = 0;
@@ -94,7 +96,7 @@ public class Aguatero : MonoBehaviour
             else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 2)
             {
                 Debug.Log("3");
-                life -= 2f;
+                life -= 5f;
                 rend.material = dmg;
                 StartCoroutine(ReturnMaterial());
             }
