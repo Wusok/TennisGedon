@@ -29,6 +29,7 @@ TagManager:
   - JumpBoost
   - Wall
   - Botiquin
+  - Rayo
   layers:
   - Default
   - TransparentFX
