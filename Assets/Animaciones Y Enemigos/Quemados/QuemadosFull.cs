@@ -9,6 +9,9 @@ public class QuemadosFull : MonoBehaviour
     public Renderer rend;
     public Material normal;
     public Material freeze;
+    public Material fire;
+    // nueva pelota de efecto
+
     public Material dmg;
     public Animator anima;
     public Vector3 playerlook;
@@ -16,6 +19,8 @@ public class QuemadosFull : MonoBehaviour
     public float lineofsite;
     public float life = 4;
     public bool freezing = false;
+    //fuego
+    public bool firezing = false;
     public GameObject enemyBall;
     private float shootTimer = 0;
     public GameObject puerta;
@@ -56,6 +61,29 @@ public class QuemadosFull : MonoBehaviour
         {
             Debug.Log(life);
         }
+
+        //probando
+        if (firezing == false && life > 0)
+        {
+            playerlook = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
+            distanciaPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+            if (distanciaPlayer < lineofsite)
+            {
+                transform.LookAt(playerlook);
+                anima.SetBool("Shoot", true);
+                shootTimer += 1 * Time.deltaTime;
+                if (shootTimer >= 1f)
+                {
+                    Instantiate(enemyBall, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation);
+                    shootTimer = 0;
+                }
+            }
+            else
+            {
+                anima.SetBool("Shoot", false);
+            }
+        }
     }
 
 
@@ -87,6 +115,13 @@ public class QuemadosFull : MonoBehaviour
                 Debug.Log("3");
                 life -= 5;
                 rend.material = dmg;
+                StartCoroutine(ReturnMaterial());
+            }
+            else if (other.GetComponent<BulletBeheivor>().WhatIsThisBall == 3)
+            {
+                Debug.Log("4");
+                life -= 3;
+                rend.material = fire;
                 StartCoroutine(ReturnMaterial());
             }
         }
@@ -122,6 +157,14 @@ public class QuemadosFull : MonoBehaviour
     IEnumerator ReturnMaterial()
     {
         yield return new WaitForSeconds(0.3f);
+        rend.material = normal;
+    }
+
+    IEnumerator ReturnMaterialFire()
+    {
+        firezing = true;
+        yield return new WaitForSeconds(2f);
+        firezing = false;
         rend.material = normal;
     }
 }

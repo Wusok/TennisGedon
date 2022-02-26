@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public static bool HaveIceBullet = false;
     public static bool HaveExplosiveBullet = false;
     public static bool HaveBigBullet = false;
+    public static bool HaveFireBullet = false;
 
     public static bool RapidRacket = false;
     public static bool MeleRacket = false;
@@ -46,6 +47,7 @@ public class Bullet : MonoBehaviour
         {
             HaveIceBullet = false;
             HaveExplosiveBullet = false;
+            HaveFireBullet = false;
         }
         CDR = 5;
     }

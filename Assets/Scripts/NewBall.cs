@@ -7,6 +7,8 @@ public class NewBall : MonoBehaviour
     public bool Ice;
     public bool Explosive;
     public bool Big;
+    // probando
+    public bool Fire;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -22,6 +24,10 @@ public class NewBall : MonoBehaviour
             if (Big == true)
             {
                 Bullet.HaveBigBullet = true;
+            }
+            if (Fire == true)
+            {
+                Bullet.HaveFireBullet = true;
             }
 
             Destroy(gameObject);
